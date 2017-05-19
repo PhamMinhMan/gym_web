@@ -6,11 +6,11 @@ import UIT.SE325H22.Group2.model.ExerciseDetail;
 
 @Repository
 public class ExerciseDetailDao extends GenericDaoImpl<ExerciseDetail, Integer> implements IExerciseDetailDao{
-	@Override
-	public void Abc() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void Abc() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 	
 }
