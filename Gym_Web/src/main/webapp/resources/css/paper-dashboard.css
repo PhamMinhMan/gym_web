@@ -14,6 +14,12 @@
 */
 /*      light colors - used for select dropdown         */
 /*           Social buttons            */
+
+  @font-face {
+    font-family: "Muli";
+    src: url(../fonts/Muli-Regular.ttf);
+  }
+  
 .ct-blue {
   stroke: #7A9E9F !important;
 }
@@ -1189,6 +1195,7 @@ body.swal2-iosfix {
   border-bottom: 1px solid #cfcfca;
   border-collapse: collapse !important;
   border-radius: 1px;
+  margin-top: 15px;
 }
 
 .bootstrap-table .table,
@@ -7765,7 +7772,7 @@ star {
   margin: 10px 0;
 }
 .card .card-footer {
-  padding: 0 15px 15px;
+  padding: 15px;
 }
 .card .card-footer .social-line .btn:first-child {
   border-radius: 0 0 0 6px;
@@ -11555,4 +11562,11 @@ star {
     margin: 0;
     padding: 5px 15px;
   }
+}
+
+.smooth {
+	-webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }

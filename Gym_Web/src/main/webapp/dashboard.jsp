@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>WEB SERVICE</title>
+<title>Dashboard</title>
 <meta charset="UTF-8">
 </head>
 <body>

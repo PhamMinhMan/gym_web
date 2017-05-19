@@ -10,14 +10,15 @@
 	<div class="sidebar" data-background-color="brown"
 		data-active-color="danger">
 		<div class="logo">
-			<a href="#" class="simple-text logo-mini"> AG </a> <a href="#"
-				class="simple-text logo-normal"> ADMIN GYM </a>
+			<a href="#" class="simple-text logo-mini"> AG </a> <a
+				href="dashboard.jsp" class="simple-text logo-normal"> ADMIN GYM
+			</a>
 		</div>
 		<div
 			class="sidebar-wrapper ps-container ps-theme-default ps-active-x ps-active-y"
 			data-ps-id="ecb6bd97-32ea-fc13-972c-b6c6b8bb8ff5">
-			<ul class="nav">
-				<li class="active"><a href="#"> <i class="ti-panel"></i>
+			<ul class="nav nav-parent">
+				<li><a href="dashboard.jsp"> <i class="ti-panel"></i>
 						<p>Dashboard</p>
 				</a></li>
 				<li><a data-toggle="collapse" href="#Examples"> <i
@@ -28,18 +29,17 @@
 				</a>
 					<div class="collapse" id="Examples">
 						<ul class="nav">
-							<li><a href="#"> <span class="sidebar-mini">Ex</span> <span
-									class="sidebar-normal">Example 1</span>
+							<li><a href="index.jsp"> <span class="sidebar-mini">Ex</span>
+									<span class="sidebar-normal">Example 1</span>
 							</a></li>
 							<li><a href="#"> <span class="sidebar-mini">Ex</span> <span
 									class="sidebar-normal">Example 2</span>
 							</a></li>
 						</ul>
 					</div></li>
-				<li><a href="/calendar.jsp"> <i class="ti-calendar"></i>
+				<li><a href="schedule.jsp"> <i class="ti-calendar"></i>
 						<p>Calendar</p>
 				</a></li>
-
 			</ul>
 		</div>
 	</div>
