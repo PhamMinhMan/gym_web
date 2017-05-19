@@ -1,10 +1,10 @@
 function operateFormatter(value, row, index) {
 	return [
 			'<div class="table-icons">',
-			'<a rel="tooltip" title="Cập nhật" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)">',
+			'<a rel="tooltip" title="Update" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)">',
 			'<i class="ti-pencil-alt"></i>',
 			'</a>',
-			'<a rel="tooltip" title="Xoá" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)">',
+			'<a rel="tooltip" title="Delete" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)">',
 			'<i class="ti-close"></i>', '</a>', '</div>', '</a>' ].join('');
 }
 
