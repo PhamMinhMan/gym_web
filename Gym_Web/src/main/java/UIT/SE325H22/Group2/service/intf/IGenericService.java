@@ -8,4 +8,5 @@ public interface IGenericService <E, K> {
     public void insert(E entity);
     public void update(E entity);
     public void delete(E entity);
+    public void deleteById(K id);
 }

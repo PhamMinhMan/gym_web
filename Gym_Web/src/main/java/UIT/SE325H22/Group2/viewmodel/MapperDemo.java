@@ -81,7 +81,7 @@ public class MapperDemo {
 				public void onMapperItem(SinhVienViewModel to, SinhVien from) {
 					to.HoVaTen = from.getHo() + from.getTen();
 				}
-			} );
+			});
 			
 			System.out.println("Ho va ten: "+ svViewModel.getHoVaTen());
 			System.out.println("Hinh anh: "+ svViewModel.getHinhAnh());

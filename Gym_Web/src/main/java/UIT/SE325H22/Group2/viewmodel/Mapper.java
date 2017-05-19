@@ -8,6 +8,7 @@ package UIT.SE325H22.Group2.viewmodel;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -77,4 +78,17 @@ public class Mapper {
         }
         return descs;
     }
+     
+     
+     static public<D extends Object,S extends Object> List<D>  copyList(List<S> sources, Class<D> dClazz,IOnMapper onMapper) throws InstantiationException, IllegalAccessException {
+         List<D> descs = new ArrayList<>();
+         Class c;
+         for(S item : sources)
+         {
+             D desc = dClazz.newInstance();
+             desc = copy(item,dClazz, onMapper);
+             descs.add(desc);
+         }
+         return descs;
+     }
 }

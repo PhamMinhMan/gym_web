@@ -53,6 +53,6 @@ public class SinhVienController {
 
 	@RequestMapping(value = "/deleteSinhVien/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 	public void deleteSinhVien(@PathVariable("id") int id) {
-		sinhVienService.deleteSinhVien(id);		
+		sinhVienService.deleteSinhVien(id);
 	}
 }
