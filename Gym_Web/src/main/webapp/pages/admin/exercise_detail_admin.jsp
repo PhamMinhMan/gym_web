@@ -1,14 +1,10 @@
-<%@page import="UIT.SE325H22.Group2.controller.ExerciseDetailAdminController"%>
-<%@page import="UIT.SE325H22.Group2.model.ExerciseDetail"%>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <title>Example</title>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<div class="wrapper">
@@ -43,8 +39,8 @@
 														<div class="form-group">
 															<label class="col-sm-4 control-label"> Mã nhóm cơ <star>*</star></label>
 															<div class="col-sm-7">
-																<input class="form-control" type="text" name="muscle_type_id"
-																	id="mssv" number="true" minLength="5" maxLength="10">
+																<input class="form-control" type="number" name="muscleTypeId"
+																	id="mssv" number="true">
 															</div>
 														</div>
 
@@ -52,7 +48,7 @@
 															<label class="col-sm-4 control-label"> Tên bài tập <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="exercise_detail_name" id="ten"
+																<input class="form-control" name="exerciseDetailName" id="ten"
 																	type="text" required="true" autocomplete="off"
 																	aria-required="true">
 															</div>
@@ -62,20 +58,13 @@
 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="exercise_detail_image" id="diachi"
+																<input class="form-control" name="exerciseDetailImage" id="diachi"
 																	type="text" required="true" autocomplete="off"
 																	aria-required="true">
 															</div>
 														</div>
 
-														<div class="form-group">
-															<label class="col-sm-4 control-label"> Thông tin </label>
-															<div class="col-sm-7">
-																<input class="form-control" name="exercise_detail_info" type="file"
-																	autocomplete="off">
-															</div>
-														</div>
-
+							
 														<div class="card-footer text-center">
 															<button type="submit" id="add"
 																class="btn btn-wd btn-success" name="POST">
@@ -104,7 +93,7 @@
 									<div class="toolbar"></div>
 									<div id="table">
 										<table data-toggle="table" class="table" id="bootstrap-table"
-											data-url="/SpringRestHibernateExample/getAllSinhViens"
+											data-url="/SpringRestHibernateExample/getAllExerciseDetails"
 											data-search="true" data-show-refresh="true"
 											data-show-toggle="true" data-show-columns="true">
 											<thead>
@@ -112,10 +101,10 @@
 													<th data-field="actions" class="td-actions"
 														data-events="operateEvents"
 														data-formatter="operateFormatter">Action</th>
-													<th data-field="muscle_type_id" >Mã nhóm cơ</th>
-													<th data-field="exercise_detail_name">Tên chi tiết bài tập</th>
-													<th data-field="exercise_detail_image">exercise_detail_image</th>
-													<th data-field="exercise_detail_info">exercise_detail_info</th>
+													<th data-field="muscleTypeId" >Mã nhóm cơ</th>
+													<th data-field="exerciseDetailName">Tên chi tiết bài tập</th>
+													<th data-field="exerciseDetailImage">exercise_detail_image</th>
+													<th data-field="exerciseDetailInfo">exercise_detail_info</th>
 												</tr>
 											</thead>
 										</table>
@@ -128,7 +117,7 @@
 			</div>
 		</div>
 		<jsp:include page="/partial/js_lib.jsp"></jsp:include>
-		<script src="resources/js/Example_SinhVien.js"></script>
+		<script src="/SpringRestHibernateExample/resources/js/admin/exercise_detail_admin.js"></script>
 	</div>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package UIT.SE325H22.Group2.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import UIT.SE325H22.Group2.model.ExerciseDetail;
 import UIT.SE325H22.Group2.service.impl.ExerciseDetailService;
@@ -45,6 +47,8 @@ public class ExerciseDetailAdminController {
 
 	@RequestMapping(value = "/addExerciseDetail", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void addExerciseDetail(@RequestBody ExerciseDetail exerciseDetail) {	
+		exerciseDetail.setCreatedDate(new Date());
+		exerciseDetail.setModifiedDate(new Date());
 		exerciseDetailService.insert(exerciseDetail);
 	}
 

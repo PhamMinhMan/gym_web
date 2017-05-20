@@ -6,7 +6,7 @@ import javax.persistence.Column;
 
 public class Base {
 	@Column(name="isDeleted")
-	private boolean isDeleted;
+	private int isDeleted;
 	@Column(name="createdDate")
 	private Date createdDate;
 	@Column(name="createdBy")
@@ -15,10 +15,10 @@ public class Base {
 	private Date modifiedDate;
 	@Column(name="modifiedBy")
 	private String modifiedBy;
-	public boolean isDeleted() {
+	public int isDeleted() {
 		return isDeleted;
 	}
-	public void setDeleted(boolean isDeleted) {
+	public void setDeleted(int isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 	public Date getCreatedDate() {
