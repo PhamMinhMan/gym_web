@@ -5,6 +5,11 @@ import java.util.Date;
 import javax.persistence.Column;
 
 public class Base {
+	
+	
+	public Base() {
+		super();
+	}
 	@Column(name="isDeleted")
 	private int isDeleted;
 	@Column(name="createdDate")
