@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>Example</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
 </head>
 <body>
 	<div class="wrapper">
@@ -36,35 +34,43 @@
 														class="form-horizontal">
 														<input type="text" style="display: none;" name="id"
 															id="id">
+
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Mã nhóm cơ <star>*</star></label>
+															<label class="col-sm-4 control-label"> Mã số <star>*</star></label>
 															<div class="col-sm-7">
-																<input class="form-control" type="number" name="muscleTypeId"
-																	id="mssv" number="true">
+																<input class="form-control" type="text" name="mssv"
+																	id="mssv" number="true" minLength="5" maxLength="10">
 															</div>
 														</div>
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Tên bài tập <star>*</star>
+															<label class="col-sm-4 control-label"> Họ tên <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="exerciseDetailName" id="ten"
+																<input class="form-control" name="ten" id="ten"
 																	type="text" required="true" autocomplete="off"
 																	aria-required="true">
 															</div>
 														</div>
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
+															<label class="col-sm-4 control-label"> Địa chỉ <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="exerciseDetailImage" id="diachi"
+																<input class="form-control" name="diachi" id="diachi"
 																	type="text" required="true" autocomplete="off"
 																	aria-required="true">
 															</div>
 														</div>
 
-							
+														<div class="form-group">
+															<label class="col-sm-4 control-label"> Avatar </label>
+															<div class="col-sm-7">
+																<input class="form-control" name="avatar" type="file"
+																	autocomplete="off">
+															</div>
+														</div>
+
 														<div class="card-footer text-center">
 															<button type="submit" id="add"
 																class="btn btn-wd btn-success" name="POST">
@@ -82,7 +88,6 @@
 										</div>
 									</div>
 								</div>
-								<!--  end acordeon -->
 							</div>
 						</div>
 					</div>
@@ -93,7 +98,7 @@
 									<div class="toolbar"></div>
 									<div id="table">
 										<table data-toggle="table" class="table" id="bootstrap-table"
-											data-url="/SpringRestHibernateExample/getAllExerciseDetails"
+											data-url="/SpringRestHibernateExample/getAllSinhViens"
 											data-search="true" data-show-refresh="true"
 											data-show-toggle="true" data-show-columns="true">
 											<thead>
@@ -101,10 +106,11 @@
 													<th data-field="actions" class="td-actions"
 														data-events="operateEvents"
 														data-formatter="operateFormatter">Action</th>
-													<th data-field="muscleTypeId" >Mã nhóm cơ</th>
-													<th data-field="exerciseDetailName">Tên chi tiết bài tập</th>
-													<th data-field="exerciseDetailImage">exercise_detail_image</th>
-													<th data-field="exerciseDetailInfo">exercise_detail_info</th>
+													<th data-field="avatar" class="avatar">Avatar</th>
+													<th data-field="id">ID</th>
+													<th data-field="mssv">MSSV</th>
+													<th data-field="ten">Họ Tên</th>
+													<th data-field="diachi">Địa chỉ</th>
 												</tr>
 											</thead>
 										</table>
@@ -117,7 +123,7 @@
 			</div>
 		</div>
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
-		<script src="/SpringRestHibernateExample/resources/js/admin/exercise_detail_admin.js"></script>
+		<script src="/SpringRestHibernateExample/resources/js/admin/Example_SinhVien.js"></script>
 	</div>
 </body>
 </html>
