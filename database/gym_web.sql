@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : dsa
-Source Server Version : 50528
+Source Server         : Connect1
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : gym_web
 
 Target Server Type    : MYSQL
-Target Server Version : 50528
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-05-17 23:26:54
+Date: 2017-05-21 10:48:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -173,6 +173,31 @@ CREATE TABLE `schedule_lession` (
 -- Records of schedule_lession
 -- ----------------------------
 INSERT INTO schedule_lession VALUES ('2', '1', '1', '3', '0', '<p><strong>Thứ hai: Ch&acirc;n và m&ocirc;ng(Cường đ&ocirc;̣ trung bình)</strong></p> <ul> <li>Khởi đ&ocirc;̣ng: Bodyweight Squat: 3 sets x 10 reps</li> <li>Barbell Squat: 5 sets x 12 reps</li> <li>Stationary Lunges: 3 sets x 20 reps (m&ocirc;̃i ch&acirc;n)</li> <li>Leg Press: 3 sets x 12 reps</li> <li>Glute Bridge: 3 sets x 20 reps</li> <li>Glutes Kickback: 4 sets x 20 reps (m&ocirc;̃i ch&acirc;n)</li> </ul> <p>Tuần thứ tư</p> <p>Với tuần n&agrave;y, c&aacute;c bạn c&oacute; thể bắt đầu l&agrave;m quen thực sự với 1 buổi tập cường độ vừa phải cho 1 nh&oacute;m cơ 1 buổi tập.</p> <p>Buổi 1: Nh&oacute;m lưng</p> <p>Buổi 2: Ngực</p> <p>Buổi 3: Ch&acirc;n, bụng</p> <p>Buổi 4: Tay</p> <p>Buổi 5: Vai, bắp ch&acirc;n</p> <p>Buổi 6: Ngực bụng ch&acirc;n tay</p>', null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for `sinhvien`
+-- ----------------------------
+DROP TABLE IF EXISTS `sinhvien`;
+CREATE TABLE `sinhvien` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ten` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `diachi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mssv` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avatar` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of sinhvien
+-- ----------------------------
+INSERT INTO sinhvien VALUES ('5', 'Pham Tri Thuc', 'KTX khu B', '13520861', 'avatar1.jpg');
+INSERT INTO sinhvien VALUES ('13', 'Phan Van Thinh', 'KTX khu B', '13520838', 'avatar1.jpg');
+INSERT INTO sinhvien VALUES ('15', 'Nguyen Khanh Duy', 'KTX khu B', '13520151', 'avatar1.jpg');
+INSERT INTO sinhvien VALUES ('16', 'Duong Van Hung', 'KTX khu B', '13520327', 'avatar1.jpg');
+INSERT INTO sinhvien VALUES ('17', 'Pham Minh Man', 'KTX khu B', '13520490', 'avatar1.jpg');
+INSERT INTO sinhvien VALUES ('21', 'ha thanh ', null, '15975555', null);
+INSERT INTO sinhvien VALUES ('22', '33333333', '3333333333', '333333333', 'avatar1.jpg');
+INSERT INTO sinhvien VALUES ('23', 'sfwewerwer', 'asdasdsad', '1111111', 'avatar1.jpg');
 
 -- ----------------------------
 -- Table structure for `song_online`
