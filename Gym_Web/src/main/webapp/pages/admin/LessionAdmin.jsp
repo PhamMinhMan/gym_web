@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Muscle Type</title>
+<title>Lession</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -36,43 +37,51 @@
 														<input type="text" style="display: none;" name="id"
 															id="id">
 
-													
-
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Tên nhóm cơ <star>*</star>
+															<label class="col-sm-4 control-label"> Tên giáo
+																án <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="muscleTypeName" id="muscleTypeName"
-																	type="text" required="true" autocomplete="off"
-																	aria-required="true">
+																<input class="form-control" name="lessionName"
+																	id="lessionName" type="text" required="true"
+																	autocomplete="off" aria-required="true">
 															</div>
 														</div>
 
-<!-- 														<div class="form-group"> -->
-<!-- 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star> -->
-<!-- 															</label> -->
-<!-- 															<div class="col-sm-7"> -->
-<!-- 																<input class="form-control" name="muscleTypeImage" id="muscleTypeImage" -->
-<!-- 																	type="text" required="true" autocomplete="off" -->
-<!-- 																	aria-required="true"> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-														
+														<!-- 														<div class="form-group"> -->
+														<!-- 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star> -->
+														<!-- 															</label> -->
+														<!-- 															<div class="col-sm-7"> -->
+														<!-- 																<input class="form-control" name="muscleTypeImage" id="muscleTypeImage" -->
+														<!-- 																	type="text" required="true" autocomplete="off" -->
+														<!-- 																	aria-required="true"> -->
+														<!-- 															</div> -->
+														<!-- 														</div> -->
+
 														<div class="form-group">
 															<label class="col-sm-4 control-label"> Hình ảnh </label>
 															<div class="col-sm-7">
-																<input class="form-control" name="muscleTypeImage" type="file"
-																	autocomplete="off">
+																<input class="form-control" name="lessionImage"
+																	type="file" autocomplete="off">
 															</div>
 														</div>
-
+														<div class="form-group">
+															<label class="col-sm-4 control-label"> Thông tin giáo án <star>*</star>
+															</label>
+															<div class="col-sm-7">
+																<input class="form-control" name="lesionInfo"
+																	id="lesionInfo" type="text" required="true"
+																	autocomplete="off" aria-required="true">
+															</div>
+														</div>
 														<div class="card-footer text-center">
 															<button type="submit" id="add"
 																class="btn btn-wd btn-success" name="POST">
 																<span class="btn-label"> <i class="fa fa-check"></i>
 																	<span class="smooth">ADD</span></span>
 															</button>
-															<button type="button" id="clear" class="btn btn-wd btn-default">
+															<button type="button" id="clear"
+																class="btn btn-wd btn-default">
 																<span class="btn-label"> <i class="fa fa-times"></i>
 																</span> CLEAR
 															</button>
@@ -93,7 +102,7 @@
 									<div class="toolbar"></div>
 									<div id="table">
 										<table data-toggle="table" class="table" id="bootstrap-table"
-											data-url="/SpringRestHibernateExample/getAllMuscleTypes"
+											data-url="/SpringRestHibernateExample/getAllLessions"
 											data-search="true" data-show-refresh="true"
 											data-show-toggle="true" data-show-columns="true">
 											<thead>
@@ -101,8 +110,9 @@
 													<th data-field="actions" class="td-actions"
 														data-events="operateEvents"
 														data-formatter="operateFormatter">Action</th>
-													<th data-field="muscleTypeName">Nhóm cơ</th>
-													<th data-field="muscleTypeImage">Hình ảnh</th>
+													<th data-field="lessionName">Tên giáo án</th>
+													<th data-field="lessionImage">Hình ảnh</th>
+													<th data-field="lesionInfo">Thông tin giáo án</th>
 												</tr>
 											</thead>
 										</table>
@@ -115,7 +125,8 @@
 			</div>
 		</div>
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
-		<script src="/SpringRestHibernateExample/resources/js/admin/muscleType.js"></script>
+		<script
+			src="/SpringRestHibernateExample/resources/js/admin/lession.js"></script>
 	</div>
 </body>
 </html>

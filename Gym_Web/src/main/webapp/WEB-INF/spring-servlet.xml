@@ -34,6 +34,7 @@
 				
 				<beans:value>UIT.SE325H22.Group2.model.Nutrition</beans:value>
 				<beans:value>UIT.SE325H22.Group2.model.Schedule</beans:value>
+				<beans:value>UIT.SE325H22.Group2.model.SongOnline</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
