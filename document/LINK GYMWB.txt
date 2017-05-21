@@ -1,0 +1,16 @@
+
+HOME
+file:///D:/TAI%20LIEU%20HOC/Google%20Drive/DONG%20BO/Group2_J2EE_TaiLieuChung/SOURCE/gym_web/trunk/client_template/radiustheme.com/demo/html/gymedge/multi-page/index.html
+
+EXERCISE DETAIL
+file:///D:/TAI%20LIEU%20HOC/Google%20Drive/DONG%20BO/Group2_J2EE_TaiLieuChung/SOURCE/gym_web/trunk/client_template/radiustheme.com/demo/html/gymedge/multi-page/single-classes.html
+
+
+NHÓM CƠ
+file:///D:/TAI%20LIEU%20HOC/Google%20Drive/DONG%20BO/Group2_J2EE_TaiLieuChung/SOURCE/gym_web/trunk/client_template/radiustheme.com/demo/html/gymedge/multi-page/classes.html
+
+NUTRITION
+file:///D:/TAI%20LIEU%20HOC/Google%20Drive/DONG%20BO/Group2_J2EE_TaiLieuChung/SOURCE/gym_web/trunk/client_template/radiustheme.com/demo/html/gymedge/multi-page/news.html
+
+Trùng EXERCISE DETAIL lấy làm NUTRITION detail
+file:///D:/TAI%20LIEU%20HOC/Google%20Drive/DONG%20BO/Group2_J2EE_TaiLieuChung/SOURCE/gym_web/trunk/client_template/radiustheme.com/demo/html/gymedge/multi-page/single-classes.html
