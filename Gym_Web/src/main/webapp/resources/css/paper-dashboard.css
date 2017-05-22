@@ -7672,7 +7672,7 @@ star {
 
 .card {
   border-radius: 6px;
-  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+  /* box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5); */
   background-color: #FFFFFF;
   color: #252422;
   margin-bottom: 20px;
@@ -9843,7 +9843,7 @@ star {
 }
 
 .panel {
-  background-color: #F9F7F3;
+  /* background-color: #F9F7F3; */
   border: 0 none;
   border-radius: 3px;
   font-size: 18;
@@ -9858,7 +9858,7 @@ star {
 }
 
 .panel-default .panel-heading {
-  background-color: #F9F7F3;
+  /* background-color: #F9F7F3; */
   border: 0 none;
   border-radius: 3px;
 }
