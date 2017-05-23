@@ -41,9 +41,7 @@
 														<div class="form-group">
 															<label class="col-sm-4 control-label"> Tên lịch <star>*</star></label>
 															<div class="col-sm-7">
-																<input class="form-control" type="text"
-																	name="scheduleName" id="scheduleName" number="true"
-																	minLength="5" maxLength="10">
+																<input class="form-control" type="text" name="scheduleName" id="scheduleName" maxLength="100">
 															</div>
 														</div>
 
@@ -78,17 +76,15 @@
 															</button>
 														</div>
 													</form>
+													<div class="col-md-12">
+														<div class="card-calendar">
+															<div id="fullCalendar"></div>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="card card-calendar">
-								<div class="card-content">
-									<div id="fullCalendar"></div>
 								</div>
 							</div>
 						</div>

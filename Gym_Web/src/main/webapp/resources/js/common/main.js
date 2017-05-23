@@ -97,8 +97,8 @@ function Message(title, message, type) {
 function setNavigation() {
     var path = window.location.pathname;
     path = path.replace(/\/$/, "");
-    path = decodeURIComponent(path).substring(path.length, 28)
-
+    path = decodeURIComponent(path).substring(path.length, path.lastIndexOf("/") + 1);
+    
     $(".nav a").each(function () {
         var href = $(this).attr('href');
         if (path.substring(0, href.length) === href) {
