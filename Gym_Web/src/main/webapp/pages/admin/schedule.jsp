@@ -101,7 +101,7 @@
 									<div class="toolbar"></div>
 									<div id="table">
 										<table data-toggle="table" class="table" id="bootstrap-table"
-											data-url="/SpringRestHibernateExample/getAllSchedule"
+											data-url="/SpringRestHibernateExample/getAllSchedules"
 											data-search="true" data-show-refresh="true"
 											data-show-toggle="true" data-show-columns="true">
 											<thead>
