@@ -1,15 +1,15 @@
 package UIT.SE325H22.Group2.dao;
 
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import UIT.SE325H22.Group2.dao.intf.ILessionDao;
 import UIT.SE325H22.Group2.model.Lession;
+
 @Repository
-public class LessionDao {
+public class LessionDao implements ILessionDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -19,6 +19,7 @@ public class LessionDao {
 
 	public List<Lession> getAllLessions() {
 		Session session = this.sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Lession> lessionList = session.createQuery("from Lession").list();
 		return lessionList;
 	}

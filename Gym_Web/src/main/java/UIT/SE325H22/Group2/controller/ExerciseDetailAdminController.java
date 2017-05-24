@@ -5,7 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import UIT.SE325H22.Group2.model.ExerciseDetail;
-import UIT.SE325H22.Group2.service.impl.ExerciseDetailService;
+import UIT.SE325H22.Group2.model.ExerciseDetail;
+import UIT.SE325H22.Group2.service.ExerciseDetailService;
+//import UIT.SE325H22.Group2.service.impl.ExerciseDetailService;
 import UIT.SE325H22.Group2.service.intf.IExerciseDetailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,48 +19,45 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ExerciseDetailAdminController {
-	
 	@Autowired
-	IExerciseDetailService exerciseDetailService;
+	ExerciseDetailService exerciseDetailService;
 	
 	@RequestMapping(value = "/getAllExerciseDetails", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<ExerciseDetail> getExerciseDetails() {
-	List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAll();
+		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAllExerciseDetails();
 		return exerciseDetails;
 	}
 
 	@RequestMapping(value = "/getExerciseDetail/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public ExerciseDetail getExerciseDetailById(@PathVariable ("id") int id) {
 		//return new ExerciseDetail();
-		return exerciseDetailService.get(id);
+		return exerciseDetailService.getExerciseDetail(id);
 	}
 	
 	@RequestMapping(value = "/getExerciseDetailsById/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<ExerciseDetail> getExerciseDetailsById(@PathVariable ("id") int id) {
 		//return new ExerciseDetail();
-		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAll();
+		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAllExerciseDetails();
 		List<ExerciseDetail> exerciseDetailsById = new ArrayList<ExerciseDetail>();
-		for(ExerciseDetail sinhvien : exerciseDetails ){
-			if(sinhvien.getId() == id)
-				exerciseDetailsById.add(sinhvien);
+		for(ExerciseDetail exerciseDetail : exerciseDetails ){
+			if(exerciseDetail.getId() == id)
+				exerciseDetailsById.add(exerciseDetail);
 		}
 		return exerciseDetailsById;
 	}
 
 	@RequestMapping(value = "/addExerciseDetail", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void addExerciseDetail(@RequestBody ExerciseDetail exerciseDetail) {	
-		exerciseDetail.setCreatedDate(new Date());
-		exerciseDetail.setModifiedDate(new Date());
-		exerciseDetailService.insert(exerciseDetail);
+		exerciseDetailService.addExerciseDetail(exerciseDetail);
 	}
 
 	@RequestMapping(value = "/updateExerciseDetail", method = RequestMethod.PUT, headers = "Accept=application/json")
 	public void updateExerciseDetail(@RequestBody ExerciseDetail exerciseDetail) {
-		exerciseDetailService.update(exerciseDetail);
+		exerciseDetailService.updateExerciseDetail(exerciseDetail);
 	}
 
 	@RequestMapping(value = "/deleteExerciseDetail/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 	public void deleteExerciseDetail(@PathVariable("id") int id) {
-		exerciseDetailService.deleteById(id);
+		exerciseDetailService.deleteExerciseDetail(id);
 	}
 }

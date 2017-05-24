@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import UIT.SE325H22.Group2.model.Nutrition;
-import UIT.SE325H22.Group2.service.impl.NutritionService;
+//import UIT.SE325H22.Group2.service.impl.NutritionService;
 
 @RestController
 public class NutritionController {

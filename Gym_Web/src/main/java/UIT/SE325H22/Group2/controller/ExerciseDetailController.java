@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import UIT.SE325H22.Group2.model.ExerciseDetail;
-import UIT.SE325H22.Group2.service.impl.ExerciseDetailService;
+//import UIT.SE325H22.Group2.service.impl.ExerciseDetailService;
 
 @RestController
 public class ExerciseDetailController {

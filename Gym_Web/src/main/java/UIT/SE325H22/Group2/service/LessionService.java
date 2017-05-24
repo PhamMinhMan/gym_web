@@ -8,9 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import UIT.SE325H22.Group2.dao.LessionDao;
 import UIT.SE325H22.Group2.model.Lession;
+import UIT.SE325H22.Group2.service.intf.ILessionService;
 
 @Service("lessionService")
-public class LessionService {
+public class LessionService{
 	@Autowired
 	LessionDao lessionDao;
 	
