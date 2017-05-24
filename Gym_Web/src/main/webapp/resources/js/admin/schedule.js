@@ -1,146 +1,105 @@
+function AddInput(week){
+	var Id = $("#tuan" + week + " textarea").length + 1;
+	var fieldWrapper = $("<div class='form-group' style='display: none;'/>");
+	var dropdownlist = $("<label class='col-sm-2 control-label'> Buổi "
+		+ Id
+		+ " <star>*</star></label> <div class='col-sm-8'><select multiple class='selectpicker col-sm-12' title='Chọn lession' data-style='btn btn-block'><option value='ARS'>ARS</option><option value='ARS'>ARS</option></select></div>");
+	var textarea = $("<div class='col-sm-12 textarea-input'><textarea class='form-control' placeholder='Chi tiết...' rows='3' name='buoi"
+		+ Id
+		+ "' id='buoi"
+		+ Id
+		+ "'></textarea></div>");
+	var removeButton = $("<div class='col-sm-2'><button type='button' class='btn btn-danger btn-sm btn-add-input'><span class='ti-minus'></span></button></div>");
+	removeButton.click(function() {
+		$(this).parent().slideUp("fast", function() {
+			$(this).remove();
+			ResetInputId(week);
+		});
+	});
+	fieldWrapper.append(dropdownlist);
+	fieldWrapper.append(removeButton);
+	fieldWrapper.append(textarea);
+	$("#tuan" + week).append(fieldWrapper);
+	$("#tuan" + week).find(".form-group:last").slideDown("fast");
+	$('.selectpicker').selectpicker({
+	});
+}
+
 $().ready(function() {
-	InitCalendar();
+	$("#addPanel").click(function() {
+		var Id = $("#panel-group-schedule .panel-group-sm").length + 1;
+		var fieldWrapper = $("<div class='panel-group-sm' style='display: none;'/>");
+		var content = $("<div class='col-sm-7 col-sm-offset-3'><div class='panel panel-border panel-default'><a data-toggle='collapse' href='#collapse"
+				+ Id
+				+ "'><div class='panel-heading'><h4 class='panel-title'>Tuần "
+				+ Id
+				+ " <i class='ti-angle-down'></i></h4></div></a><div id='collapse"
+				+ Id
+				+ "' class='panel-collapse collapse'><div class='panel-body'><div id='tuan"
+				+ Id
+				+ "'><div class='form-group'><label class='col-sm-2 control-label'>Buổi 1 <star>*</star></label><div class='col-sm-8'><select multiple class='selectpicker col-sm-12' title='Chọn lession' data-style='btn btn-block'><option value='ARS'>ARS</option><option value='ARS'>ARS</option></select></div><div class='col-sm-2'><button type='button' class='btn btn-success btn-sm btn-add-input' onclick = 'AddInput("
+				+ Id
+				+ ");'><span class='ti-plus'></span></button></div><div class='col-sm-12 textarea-input'><textarea class='form-control' placeholder='Chi tiết...' rows='3' name='buoi"
+				+ Id
+				+ "' id='buoi"
+				+ Id
+				+ "'></textarea></div></div></div></div></div></div></div>");
+				
+		var removeButton = $("<div class='col-sm-2'><button type='button' class='btn btn-danger btn-add-panel'><span class='ti-minus'></span></button></div>");
+		removeButton.click(function() {
+			$(this).parent().slideUp("fast",
+					function() {
+						$(this).remove();
+						ResetPanelId();
+					});
+		});
+		fieldWrapper.append(content);
+		fieldWrapper.append(removeButton);
+		$("#panel-group-schedule").append(
+				fieldWrapper);
+		$("#panel-group-schedule").find(
+				".panel-group-sm:last")
+				.slideDown("fast");
+		$('.selectpicker').selectpicker({
+		});
+	});
+						
 });
 
-function InitCalendar() {
-	$calendar = $('#fullCalendar');
+function ResetInputId(week){
+	var Id = 0;
+	$("#tuan" + week + " .form-group").each(function() {
+		Id++;
+		$(this).find("label").html("Buổi " + Id + " <star>*</star>");
+	});
+}
 
-	today = new Date();
-	y = today.getFullYear();
-	m = today.getMonth();
-	d = today.getDate();
-
-	$calendar
-			.fullCalendar({
-				viewRender : function(view, element) {
-					// We make sure that we activate the perfect scrollbar when
-					// the
-					// view isn't on Month
-					if (view.name != 'month') {
-						$(element).find('.fc-scroller').perfectScrollbar();
-					}
-				},
-				header : {
-					left : 'title',
-					right : 'prev,next,today'
-				},
-				defaultDate : today,
-				selectable : true,
-				selectHelper : true,
-
-				select : function(start, end) {
-
-					// on select we show the Sweet Alert modal with an input
-					swal(
-							{
-								title : 'Create an Event',
-								html : '<div class="form-group">'
-										+ '<input class="form-control" placeholder="Event Title" id="input-field">'
-										+ '</div>',
-								showCancelButton : true,
-								confirmButtonClass : 'btn btn-success',
-								cancelButtonClass : 'btn btn-danger',
-								buttonsStyling : false
-							}).then(
-							function(result) {
-
-								var eventData;
-								event_title = $('#input-field').val();
-
-								if (event_title) {
-									eventData = {
-										title : event_title,
-										start : start,
-										end : end
-									};
-									$calendar.fullCalendar('renderEvent',
-											eventData, true); // stick?
-									// =
-									// true
-								}
-
-								$calendar.fullCalendar('unselect');
-
-							});
-				},
-				editable : true,
-				eventLimit : true, // allow "more" link when too many events
-
-				// color classes: [ event-blue | event-azure | event-green |
-				// event-orange | event-red ]
-				events : [ {
-					title : 'All Day Event',
-					start : new Date(y, m, 1),
-					className : 'event-default'
-				}, {
-					id : 999,
-					title : 'Repeating Event',
-					start : new Date(y, m, d - 4, 6, 0),
-					allDay : false,
-					className : 'event-rose'
-				}, {
-					id : 999,
-					title : 'Repeating Event',
-					start : new Date(y, m, d + 3, 6, 0),
-					allDay : false,
-					className : 'event-rose'
-				}, {
-					title : 'Meeting',
-					start : new Date(y, m, d - 1, 10, 30),
-					allDay : false,
-					className : 'event-green'
-				}, {
-					title : 'Lunch',
-					start : new Date(y, m, d + 7, 12, 0),
-					end : new Date(y, m, d + 7, 14, 0),
-					allDay : false,
-					className : 'event-red'
-				}, {
-					title : 'Md-pro Launch',
-					start : new Date(y, m, d - 2, 12, 0),
-					allDay : true,
-					className : 'event-azure'
-				}, {
-					title : 'Birthday Party',
-					start : new Date(y, m, d + 1, 19, 0),
-					end : new Date(y, m, d + 1, 22, 30),
-					allDay : false,
-					className : 'event-azure'
-				}, {
-					title : 'Click for Creative Tim',
-					start : new Date(y, m, 21),
-					end : new Date(y, m, 22),
-					url : 'http://www.creative-tim.com/',
-					className : 'event-orange'
-				}, {
-					title : 'Click for Google',
-					start : new Date(y, m, 21),
-					end : new Date(y, m, 22),
-					url : 'http://www.creative-tim.com/',
-					className : 'event-orange'
-				} ]
-			});
+function ResetPanelId(){
+	var Id = 0;
+	$("#panel-group-schedule .panel-group-sm").each(function() {
+		Id++;
+		$(this).find("h4").html("Tuần " + Id + " <i class='ti-angle-down'></i>");
+	});
 }
 
 function POST() {
 	var data = $("#form").serializeFormJSON();
 	data.id = 0;
-	$
-			.ajax({
-				url : "/SpringRestHibernateExample/addSchedule",
-				method : "POST",
-				contentType : "application/json",
-				data : JSON.stringify(data),
-				success : function() {
-					Message("Thành công", "Bạn đã thêm dữ liệu thành công!",
-							"success");
-					$('#bootstrap-table').bootstrapTable('refresh');
-					ResetInput();
-				},
-				error : function() {
-					Message("Thất bại", "Đã có lỗi xảy ra!", "danger");
-				}
-			});
+	$.ajax({
+		url : "/SpringRestHibernateExample/addSchedule",
+		method : "POST",
+		contentType : "application/json",
+		data : JSON.stringify(data),
+		success : function() {
+			Message("Thành công", "Bạn đã thêm dữ liệu thành công!",
+					"success");
+			$('#bootstrap-table').bootstrapTable('refresh');
+			ResetInput();
+		},
+		error : function() {
+			Message("Thất bại", "Đã có lỗi xảy ra!", "danger");
+		}
+	});
 }
 
 function PUT() {

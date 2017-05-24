@@ -39,14 +39,16 @@
 															id="id">
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Tên lịch <star>*</star></label>
+															<label class="col-sm-3 control-label"> Tên lịch <star>*</star></label>
 															<div class="col-sm-7">
-																<input class="form-control" type="text" name="scheduleName" id="scheduleName" maxLength="100">
+																<input class="form-control" type="text"
+																	name="scheduleName" id="scheduleName" maxLength="100"
+																	required="true" autocomplete="off" aria-required="true">
 															</div>
 														</div>
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Info <star>*</star>
+															<label class="col-sm-3 control-label"> Info <star>*</star>
 															</label>
 															<div class="col-sm-7">
 																<input class="form-control" name="schedulenInfo"
@@ -56,10 +58,69 @@
 														</div>
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Avatar </label>
+															<label class="col-sm-3 control-label"> Avatar </label>
 															<div class="col-sm-7">
 																<input class="form-control" name="scheduleImage"
 																	type="file" autocomplete="off">
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label class="col-sm-3 control-label"> Schedule
+																Detail <star>*</star>
+															</label>
+															<div class="panel-group" id="panel-group-schedule">
+																<div class="panel-group-sm">
+																	<div class="col-sm-7">
+																		<div class="panel panel-border panel-default">
+																			<a data-toggle="collapse" href="#collapse1">
+																				<div class="panel-heading">
+																					<h4 class="panel-title">
+																						Tuần 1 <i class="ti-angle-down"></i>
+																					</h4>
+																				</div>
+																			</a>
+																			<div id="collapse1" class="panel-collapse collapse">
+																				<div class="panel-body">
+																					<div id="tuan1">
+																						<div class="form-group">
+																							<label class="col-sm-2 control-label">
+																								Buổi 1 <star>*</star>
+																							</label>
+																							<div class="col-sm-8">
+																								<select multiple class="selectpicker col-sm-12"
+																									title="Chọn lession" data-style="btn btn-block" name="" id="">
+																									<option value="ARS">ARS</option>
+																									<option value="AUD">AUD</option>
+																									<option value="BRL">BRL</option>
+																								</select>
+																							</div>
+																							<div class="col-sm-2">
+																								<button type="button"
+																									class="btn btn-sm btn-success btn-add-input"
+																									onclick="AddInput(1);">
+																									<span class="ti-plus"></span>
+																								</button>
+																							</div>
+																							<div class="col-sm-12 textarea-input">
+																								<textarea class="form-control"
+																									placeholder="Chi tiết..." rows="3" name="buoi1"
+																									id="buoi1"></textarea>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-sm-2">
+																		<button type="button"
+																			class="btn btn-success btn-add-panel" id="addPanel">
+																			<span class="ti-plus"></span>
+																		</button>
+																	</div>
+																</div>
+
 															</div>
 														</div>
 
@@ -67,7 +128,7 @@
 															<button type="submit" id="add"
 																class="btn btn-wd btn-success" name="POST">
 																<span class="btn-label"> <i class="fa fa-check"></i>
-																	<span class="smooth">ADD</span></span>
+																	<span>ADD</span></span>
 															</button>
 															<button type="button" id="clear"
 																class="btn btn-wd btn-default">
@@ -76,11 +137,6 @@
 															</button>
 														</div>
 													</form>
-													<div class="col-md-12">
-														<div class="card-calendar">
-															<div id="fullCalendar"></div>
-														</div>
-													</div>
 												</div>
 											</div>
 										</div>
