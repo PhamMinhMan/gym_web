@@ -89,7 +89,9 @@
 																							</label>
 																							<div class="col-sm-8">
 																								<select multiple class="selectpicker col-sm-12" data-live-search="true"
-																									title="Chọn lession" data-style="btn btn-block" name="" id="" data-ajax="">
+																									title="Chọn lession" data-style="btn btn-block" name="" id="" data-ajax="/SpringRestHibernateExample/getLessionsCombobox">
+																									<option value="1">Temp1</option>
+																									<option value="2">Temp2</option>
 																								</select>
 																							</div>
 																							<div class="col-sm-2">

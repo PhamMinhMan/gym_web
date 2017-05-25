@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import UIT.SE325H22.Group2.model.Schedule;
 import UIT.SE325H22.Group2.service.ScheduleService;
+import UIT.SE325H22.Group2.viewmodel.Demo2;
+import UIT.SE325H22.Group2.viewmodel.ScheduleLessionAdmin.ScheduleLessionViewModel;
 
 @RestController
 public class ScheduleController {
@@ -33,6 +35,11 @@ public class ScheduleController {
 	@RequestMapping(value = "/addSchedule", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void addSchedule(@RequestBody Schedule Schedule) {	
 		ScheduleService.addSchedule(Schedule);
+	}
+	
+	@RequestMapping(value = "/addScheduleLession", method = RequestMethod.POST, headers = "Accept=application/json")
+	public void addScheduleLession(@RequestBody ScheduleLessionViewModel scheduleLessionViewModel) {	
+		ScheduleService.addScheduleLession(scheduleLessionViewModel);
 	}
 
 	@RequestMapping(value = "/updateSchedule", method = RequestMethod.PUT, headers = "Accept=application/json")

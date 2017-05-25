@@ -29,15 +29,15 @@ public class ScheduleDao {
 		return Schedule;
 	}
 
-	public Schedule addSchedule(Schedule Schedule) {
+	public Schedule addSchedule(Schedule schedule) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(Schedule);
-		return Schedule;
+		session.persist(schedule);
+		return schedule;
 	}
 
-	public void updateSchedule(Schedule Schedule) {
+	public void updateSchedule(Schedule schedule) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(Schedule);
+		session.update(schedule);
 	}
 
 	public void deleteSchedule(int id) {
