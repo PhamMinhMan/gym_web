@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import UIT.SE325H22.Group2.model.Lession;
 import UIT.SE325H22.Group2.service.LessionService;
+import UIT.SE325H22.Group2.viewmodel.LessionComboboxViewModel;
 
 @RestController
 public class LessionController {
@@ -54,5 +55,12 @@ public class LessionController {
 	@RequestMapping(value = "/deleteLession/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 	public void deleteLession(@PathVariable("id") int id) {
 		lessionService.deleteLession(id);
+	}
+	
+
+	@RequestMapping(value = "/getLessionsCombobox", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ArrayList<LessionComboboxViewModel> getLessionsCombobox() throws InstantiationException, IllegalAccessException {
+		ArrayList<LessionComboboxViewModel> lessions = lessionService.getLessionsCombobox();
+		return lessions;
 	}
 }

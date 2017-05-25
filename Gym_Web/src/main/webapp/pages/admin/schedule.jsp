@@ -88,11 +88,8 @@
 																								Buổi 1 <star>*</star>
 																							</label>
 																							<div class="col-sm-8">
-																								<select multiple class="selectpicker col-sm-12"
-																									title="Chọn lession" data-style="btn btn-block" name="" id="">
-																									<option value="ARS">ARS</option>
-																									<option value="AUD">AUD</option>
-																									<option value="BRL">BRL</option>
+																								<select multiple class="selectpicker col-sm-12" data-live-search="true"
+																									title="Chọn lession" data-style="btn btn-block" name="" id="" data-ajax="">
 																								</select>
 																							</div>
 																							<div class="col-sm-2">
