@@ -12,6 +12,8 @@ import UIT.SE325H22.Group2.model.Schedule;
 import UIT.SE325H22.Group2.model.ScheduleLession;
 import UIT.SE325H22.Group2.viewmodel.Mapper;
 import UIT.SE325H22.Group2.viewmodel.ScheduleViewModel;
+import UIT.SE325H22.Group2.viewmodel.ScheduleLessionAdmin.DayViewModel;
+import UIT.SE325H22.Group2.viewmodel.ScheduleLessionAdmin.LessionViewModel;
 import UIT.SE325H22.Group2.viewmodel.ScheduleLessionAdmin.ScheduleLessionViewModel;
 
 @Service("scheduleService")
@@ -20,7 +22,7 @@ public class ScheduleService {
 	ScheduleDao scheduleDao;
 	@Autowired
 	ScheduleLessionDao scheduleLessionDao;
-	
+
 	@Transactional
 	public List<Schedule> getAllSchedules() {
 		return scheduleDao.getAllSchedules();
@@ -45,17 +47,29 @@ public class ScheduleService {
 	public void deleteSchedule(int id) {
 		scheduleDao.deleteSchedule(id);
 	}
-	
+
 	@Transactional
 	public void addScheduleLession(ScheduleLessionViewModel scheduleLesionViewModel) {
-		//scheduleDao.addSchedule(schedule);
 		Schedule schedule;
 		try {
 			schedule = Mapper.copy(scheduleLesionViewModel, Schedule.class, null);
 			schedule = scheduleDao.addSchedule(schedule);
 
-			
-		
+			for (int iWeek = 0; iWeek < scheduleLesionViewModel.getWeeks().size(); iWeek++) {
+				for(int iDay = 0; iDay < scheduleLesionViewModel.getWeeks().get(iWeek).getDays().size();iDay++){
+					DayViewModel day = scheduleLesionViewModel.getWeeks().get(iWeek).getDays().get(iDay);
+					for(LessionViewModel lession : day.getLessions()){
+						ScheduleLession scheduleLession = Mapper.copy(day, ScheduleLession.class, null);
+						
+						scheduleLession.setDay(iDay+1);
+						scheduleLession.setWeek(iWeek+1);
+						scheduleLession.setLessionId(lession.getId());
+						scheduleLession.setScheduleId(schedule.getId());
+						scheduleLession = scheduleLessionDao.addScheduleLession(scheduleLession);
+					}
+				}
+			}
+
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

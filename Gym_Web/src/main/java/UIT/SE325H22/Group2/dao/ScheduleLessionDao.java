@@ -2,14 +2,15 @@ package UIT.SE325H22.Group2.dao;
 
 import java.util.List;
 
+import UIT.SE325H22.Group2.model.ScheduleLession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import UIT.SE325H22.Group2.model.ScheduleLession;
 @Repository
 public class ScheduleLessionDao {
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -19,14 +20,14 @@ public class ScheduleLessionDao {
 
 	public List<ScheduleLession> getAllScheduleLessions() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<ScheduleLession> ScheduleLessionList = session.createQuery("from ScheduleLession").list();
-		return ScheduleLessionList;
+		List<ScheduleLession> scheduleLessionList = session.createQuery("from ScheduleLession").list();
+		return scheduleLessionList;
 	}
 
 	public ScheduleLession getScheduleLession(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		ScheduleLession ScheduleLession = (ScheduleLession) session.get(ScheduleLession.class, new Integer(id));
-		return ScheduleLession;
+		ScheduleLession scheduleLession = (ScheduleLession) session.load(ScheduleLession.class, new Integer(id));
+		return scheduleLession;
 	}
 
 	public ScheduleLession addScheduleLession(ScheduleLession scheduleLession) {
@@ -42,9 +43,9 @@ public class ScheduleLessionDao {
 
 	public void deleteScheduleLession(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		ScheduleLession p = (ScheduleLession) session.get(ScheduleLession.class, new Integer(id));
+		ScheduleLession p = (ScheduleLession) session.load(ScheduleLession.class, new Integer(id));
 		if (null != p) {
 			session.delete(p);
 		}
-	}
+	}	
 }

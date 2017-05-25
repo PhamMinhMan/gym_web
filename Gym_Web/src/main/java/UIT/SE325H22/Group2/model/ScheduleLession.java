@@ -10,34 +10,44 @@ public class ScheduleLession extends Base {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "lession_id")
+	private int lessionId;
+	@Column(name = "schedule_id")
+	private int scheduleId;
+	@Column(name = "thu")
+	private int day;
+	@Column(name = "tuan")
+	private int week;
+	@Column(name = "schedule_lession_info")
+	private String scheduleLessionInfo;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getLessionId() {
+	public int getLessionId() {
 		return lessionId;
 	}
-	public void setLessionId(String lessionId) {
+	public void setLessionId(int lessionId) {
 		this.lessionId = lessionId;
 	}
-	public String getScheduleId() {
+	public int getScheduleId() {
 		return scheduleId;
 	}
-	public void setScheduleId(String scheduleId) {
+	public void setScheduleId(int scheduleId) {
 		this.scheduleId = scheduleId;
 	}
-	public String getDay() {
+	public int getDay() {
 		return day;
 	}
-	public void setDay(String day) {
+	public void setDay(int day) {
 		this.day = day;
 	}
-	public String getWeek() {
+	public int getWeek() {
 		return week;
 	}
-	public void setWeek(String week) {
+	public void setWeek(int week) {
 		this.week = week;
 	}
 	public String getScheduleLessionInfo() {
@@ -46,14 +56,8 @@ public class ScheduleLession extends Base {
 	public void setScheduleLessionInfo(String scheduleLessionInfo) {
 		this.scheduleLessionInfo = scheduleLessionInfo;
 	}
-	@Column(name = "lession_id")
-	private String lessionId;
-	@Column(name = "schedule_id")
-	private String scheduleId;
-	@Column(name = "thu")
-	private String day;
-	@Column(name = "tuan")
-	private String week;
-	@Column(name = "schedule_lession_info")
-	private String scheduleLessionInfo;
+	
+	
+	
+	
 }

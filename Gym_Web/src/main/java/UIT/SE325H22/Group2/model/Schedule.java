@@ -19,7 +19,7 @@ public class Schedule extends Base {
 	@Column(name = "schedule_image")
 	private String scheduleImage;
 	@Column(name = "schedule_info")
-	private String schedulenInfo;
+	private String scheduleInfo;
 
 	public int getId() {
 		return id;
@@ -46,11 +46,11 @@ public class Schedule extends Base {
 	}
 
 	public String getSchedulenInfo() {
-		return schedulenInfo;
+		return scheduleInfo;
 	}
 
 	public void setSchedulenInfo(String schedulenInfo) {
-		this.schedulenInfo = schedulenInfo;
+		this.scheduleInfo = schedulenInfo;
 	}
 
 }
