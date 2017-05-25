@@ -47,9 +47,21 @@ public class ScheduleService {
 	}
 	
 	@Transactional
-	public void addScheduleLession(ScheduleLessionViewModel schedule) {
+	public void addScheduleLession(ScheduleLessionViewModel scheduleLesionViewModel) {
 		//scheduleDao.addSchedule(schedule);
-		ScheduleLession scheduleLession = Mapper.copy(schedule, dClazz, onMapper)
-		scheduleLessionDao.addScheduleLession(Ma)
+		Schedule schedule;
+		try {
+			schedule = Mapper.copy(scheduleLesionViewModel, Schedule.class, null);
+			schedule = scheduleDao.addSchedule(schedule);
+
+			
+		
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
