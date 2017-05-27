@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="org.springframework.web.client.RestTemplate" %>
+<%@ page import="UIT.SE325H22.Group2.model.MuscleType" %>
+<%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %>
 <!doctype html>
 <html class="no-js" lang="">
     
@@ -34,161 +37,54 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="isotop-classes-tab">                            
                                                 <a href="#" data-filter="*" class="current">All</a>
-                                                <a href="#" data-filter=".building">Body Building</a>
-                                                <a href="#" data-filter=".yaga">Yoga</a>
-                                                <a href="#" data-filter=".karate">Karate</a>
-                                                <a href="#" data-filter=".meditation">Meditation</a>
-                                                <a href="#" data-filter=".running">Running</a>
-                                                <a href="#" data-filter=".boxing">Boxing</a>
+                                               
+                                              <%
+								                    RestTemplate restTemplate = new RestTemplate();
+								       				MuscleType[] listMuscleType = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllMuscleTypes", MuscleType[].class).getBody();
+								       				for(MuscleType muscleType : listMuscleType )
+								       				{ 				
+							         			%>
+							         		
+														 <a href="#" data-filter=".<%= muscleType.getId()%>"><%= muscleType.getMuscleTypeName() %></a>
+								         		<%
+								       				}
+								         		%>    
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="portfolioContainer zoom-gallery">               
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 yaga meditation">
+                                <%
+                                	ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllExerciseDetails", ExerciseDetail[].class).getBody();
+				       				for(ExerciseDetail exerciseDetail : listExerciseDetail )
+				       				{ 				
+         						%>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 karate <%= exerciseDetail.getMuscleTypeId()%>">
                                         <div class="single-classes-area">
                                             <div class="classes-img">
                                                 <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/yoga.jpg" alt="yoga">
+                                                    <img src="<%= exerciseDetail.getExerciseDetailImage() %>"  alt="yoga">
                                                 </a>
                                                 <div class="classes-overlay">
                                                     <a class="elv-zoom" href="img/classes/yoga.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                             <div class="classes-title">
-                                                <h3><a href="single-classes.html">Classic Yoga</a></h3>
+                                                <h3><a href="single-classes.html"><%= exerciseDetail.getExerciseDetailName() %></a></h3>
                                                 <p class="date">09.00 am - 10.00 Am</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 building karate">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/building.jpg" alt="yoga">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/yoga.jpg" title="building"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Classic Yoga</a></h3>
-                                                <p class="date">10.00 am - 11.00 Am</p>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 yaga running boxing">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/running.jpg" alt="running">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/running.jpg" title="Running"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Running</a></h3>
-                                                <p class="date">04.00 pm - 10.00 pm</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 building karate">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/karate.jpg" alt="karate">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/karate.jpg" title="Karate"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Karate</a></h3>
-                                                <p class="date">06.00 am - 08.00 Am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 yaga building boxing">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/yoga.jpg" alt="yoga">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/yoga.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Classic Yoga</a></h3>
-                                                <p class="date">09.00 am - 10.00 Am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 building meditation">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/meditation.jpg" alt="meditation">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/meditation.jpg" title="Meditation"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Meditation</a></h3>
-                                                <p class="date">09.00 am - 10.00 Am</p>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 karate running">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/yoga.jpg" alt="yoga">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/yoga.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Classic Yoga</a></h3>
-                                                <p class="date">09.00 am - 10.00 Am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 meditation boxing">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/building.jpg" alt="building">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/building.jpg" title="Body Building"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Body Building</a></h3>
-                                                <p class="date">10.00 am - 11.00 Am</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 running boxing">
-                                        <div class="single-classes-area">
-                                            <div class="classes-img">
-                                                <a href="#">
-                                                    <img src="/SpringRestHibernateExample/resources/client/img/classes/running.jpg" alt="running">
-                                                </a>
-                                                <div class="classes-overlay">
-                                                    <a class="elv-zoom" href="img/classes/running.jpg" title="Running"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="classes-title">
-                                                <h3><a href="single-classes.html">Running</a></h3>
-                                                <p class="date">04.00 pm - 10.00 pm</p>
-                                            </div>
-                                        </div>
-                                    </div>                         
+				         		<%
+				       				}
+				         		%>     
+                                   
+                                  
+                                  
+                                    
+                                   
+                                   
+                                                       
                                 </div>
                             </div>
                         <!-- Gallery Section Area End Here -->
