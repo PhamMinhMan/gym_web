@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!doctype html>
 <html class="no-js" lang="">
     
@@ -9,6 +10,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>GymEdge | Home Page 4</title>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -16,6 +18,9 @@
        
     </head>
     <body>
+    
+    <c:set var="id" value="Hello World" scope="request"></c:set>
+	<c:out value="${requestScope.id }" ></c:out>
         <!-- Start wrapper -->
         <div class="wrapper">
         <!--[if lt IE 8]>
