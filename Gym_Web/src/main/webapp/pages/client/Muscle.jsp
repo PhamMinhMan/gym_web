@@ -3,6 +3,7 @@
 <%@ page import="org.springframework.web.client.RestTemplate" %>
 <%@ page import="UIT.SE325H22.Group2.model.MuscleType" %>
 <%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!doctype html>
 <html class="no-js" lang="">
     
@@ -27,6 +28,7 @@
            	<jsp:include page="/partial/client/header-top.jsp"></jsp:include> <!-- include  header-top -->  
             
             <!-- Start Classes page area -->
+    	  
             <div class="our-classes-area padding-top">
                 <div class="container">
                     <div class="row">
@@ -41,14 +43,12 @@
                                               <%
 								                    RestTemplate restTemplate = new RestTemplate();
 								       				MuscleType[] listMuscleType = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllMuscleTypes", MuscleType[].class).getBody();
-								       				for(MuscleType muscleType : listMuscleType )
-								       				{ 				
+								       				request.setAttribute("listMuscleType", listMuscleType);
+								       							
 							         			%>
-							         		
-														 <a href="#" data-filter=".<%= muscleType.getId()%>"><%= muscleType.getMuscleTypeName() %></a>
-								         		<%
-								       				}
-								         		%>    
+								         		<c:forEach items="${listMuscleType}" var="muscleType"  >
+												     <a href="#" data-filter=".${muscleType.getId()}">${muscleType.getMuscleTypeName()}</a>
+												</c:forEach>  
                                             </div>
                                         </div>
                                     </div>
@@ -56,29 +56,28 @@
                                 <div class="portfolioContainer zoom-gallery">               
                                 <%
                                 	ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllExerciseDetails", ExerciseDetail[].class).getBody();
-				       				for(ExerciseDetail exerciseDetail : listExerciseDetail )
-				       				{ 				
+                                	request.setAttribute("listExerciseDetail", listExerciseDetail);  					
          						%>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 karate <%= exerciseDetail.getMuscleTypeId()%>">
+                                   
+				         		   
+                                <c:forEach items="${listExerciseDetail}" var="exerciseDetail"  >
+									 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 karate ${exerciseDetail.getMuscleTypeId()}">
                                         <div class="single-classes-area">
                                             <div class="classes-img">
                                                 <a href="#">
-                                                    <img src="<%= exerciseDetail.getExerciseDetailImage() %>"  alt="yoga">
+                                                    <img src="${exerciseDetail.getExerciseDetailImage()}"  alt="yoga">
                                                 </a>
                                                 <div class="classes-overlay">
                                                     <a class="elv-zoom" href="img/classes/yoga.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                             <div class="classes-title">
-                                                <h3><a href="single-classes.html"><%= exerciseDetail.getExerciseDetailName() %></a></h3>
+                                                <h3><a href="single-classes.html">${exerciseDetail.getExerciseDetailName()}</a></h3>
                                                 <p class="date">09.00 am - 10.00 Am</p>
                                             </div>
                                         </div>
                                     </div>
-				         		<%
-				       				}
-				         		%>     
-                                   
+								</c:forEach>     
                                   
                                   
                                     

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@ page import="org.springframework.web.client.RestTemplate" %>
+<%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!doctype html>
 <html class="no-js" lang="">
     
@@ -18,7 +20,6 @@
        
     </head>
     <body>
-    
     <c:set var="id" value="Hello World" scope="request"></c:set>
 	<c:out value="${requestScope.id }" ></c:out>
         <!-- Start wrapper -->
@@ -347,81 +348,36 @@
                         data-r-large="4"
                         data-r-large-nav="true"
                         data-r-large-dots="false">
-                        <div class="single-product-classes3">
-                            <div class="single-product hvr-bounce-to-bottom">
-                                <a href="#"><img class="img-responsive" src="/SpringRestHibernateExample/resources/client/img/feature/8.jpg" alt="feature"></a>
-                                <div class="overlay-btn">
-                                    <a href="#" class="btn-details">Details</a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Free Hand</a></h3>
-                                <ul>
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-product-classes3">
-                            <div class="single-product hvr-bounce-to-bottom">
-                                <a href="#"><img class="img-responsive" src="/SpringRestHibernateExample/resources/client/img/feature/9.jpg" alt="feature"></a>
-                                <div class="overlay-btn">
-                                    <a href="#" class="btn-details">Details</a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Weight Lifting</a></h3>
-                                <ul>
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-product-classes3">
-                            <div class="single-product hvr-bounce-to-bottom">
-                                <a href="#"><img class="img-responsive" src="/SpringRestHibernateExample/resources/client/img/feature/10.jpg" alt="feature"></a>
-                                <div class="overlay-btn">
-                                    <a href="#" class="btn-details">Details</a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Advance Yoga</a></h3>
-                                <ul>
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-product-classes3">
-                            <div class="single-product hvr-bounce-to-bottom">
-                                <a href="#"><img class="img-responsive" src="/SpringRestHibernateExample/resources/client/img/feature/11.jpg" alt="feature"></a>
-                                <div class="overlay-btn">
-                                    <a href="#" class="btn-details">Details</a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Running</a></h3>
-                                <ul>
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-product-classes3">
-                            <div class="single-product hvr-bounce-to-bottom">
-                                <a href="#"><img class="img-responsive" src="/SpringRestHibernateExample/resources/client/img/feature/8.jpg" alt="product"></a>
-                                <div class="overlay-btn">
-                                    <a href="#" class="btn-details">Details</a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="#">Free Hand</a></h3>
-                                <ul>
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <%
+                        	RestTemplate restTemplate = new RestTemplate();
+                            ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllExerciseDetails", ExerciseDetail[].class).getBody();
+                            request.setAttribute("listExerciseDetail", listExerciseDetail);
+                            for(ExerciseDetail exerciseDetail : listExerciseDetail )
+				       		{ 				
+         				%>
+                                   
+				         <%
+				       		}
+				         %> 
+				          <c:forEach items="${listExerciseDetail}" var="exerciseDetail"  >
+								<div class="single-product-classes3">
+			                            <div class="single-product hvr-bounce-to-bottom">
+			                                <a href="#"><img class="img-responsive" src="${exerciseDetail.getExerciseDetailImage()}" alt="${exerciseDetail.getExerciseDetailName()}"></a>
+			                                <div class="overlay-btn">
+			                                    <a href="#" class="btn-details">Details</a>
+			                                </div>
+			                            </div>
+			                            <div class="product-content">
+			                                <h3><a href="#">${exerciseDetail.getExerciseDetailName()}</a></h3>
+			                                <ul>
+			                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
+			                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>
+			                                </ul>
+			                            </div>
+                       			 </div>
+							</c:forEach>         
+                    
+                        
                     </div>
                 </div>
             </div>
