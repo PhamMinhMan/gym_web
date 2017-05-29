@@ -368,7 +368,7 @@
 			                                </div>
 			                            </div>
 			                            <div class="product-content">
-			                                <h3><a href="#">${exerciseDetail.getExerciseDetailName()}</a></h3>
+			                                <h3><a href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
 			                                <ul>
 			                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>16 Decmber, 2017</li>
 			                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>09.00am - 10.00am</li>

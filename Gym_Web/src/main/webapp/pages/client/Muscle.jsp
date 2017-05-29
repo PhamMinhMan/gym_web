@@ -72,7 +72,7 @@
                                                 </div>
                                             </div>
                                             <div class="classes-title">
-                                                <h3><a href="single-classes.html">${exerciseDetail.getExerciseDetailName()}</a></h3>
+                                                <h3><a href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
                                                 <p class="date">09.00 am - 10.00 Am</p>
                                             </div>
                                         </div>

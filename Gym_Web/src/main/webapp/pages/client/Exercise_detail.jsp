@@ -1,20 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="org.springframework.web.client.RestTemplate" %>
+<%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %> 
+       
+<%
+String id = request.getParameter("Id");
+RestTemplate restTemplate = new RestTemplate();
+ExerciseDetail exerciseDetail = restTemplate.getForObject("http://localhost:8080/SpringRestHibernateExample/getExerciseDetail/{id}", ExerciseDetail.class, id) ;	
+if(exerciseDetail == null)
+{
+	response.sendRedirect("404.jsp");
+	return;
+}
+	
+%>
 <!doctype html>
 <html class="no-js" lang="">
     
 <!-- Mirrored from radiustheme.com/demo/html/gymedge/multi-page/single-classes.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 May 2017 14:09:56 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
+	
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Gymedge | Single Classes</title>
+        <title><%= exerciseDetail.getExerciseDetailName() %></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
        	<jsp:include page="/partial/client/css_client.jsp"></jsp:include> <!-- include css -->  
     </head>
     <body>
+    	
         <!-- Start wrapper -->
         <div class="wrapper">
         <!--[if lt IE 8]>
@@ -29,29 +45,19 @@
                             <div class="single-class-detail">
                                 <div class="class-content">
                                     <div class="detail-img">
-                                        <img src="/SpringRestHibernateExample/resources/client/img/classes/class-detail-img.jpg" alt="detail-img">
+                                        <img src="<%= exerciseDetail.getExerciseDetailImage() %>" style ="display:block;margin:auto;" alt="detail-img">
                                     </div>
                                     <div class="class-heading">
-                                        <h3>Body Building</h3>
+                                        <h3><%= exerciseDetail.getExerciseDetailName() %></h3>
                                         <ul>
                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i>Class Time : 10.00 AM - 11.00 AM</li>
-                                            <li><i class="fa fa-user" aria-hidden="true"></i>Trainer : <a href="#">John Smith</a></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>Trainer : <a href="#">DUYNK6</a></li>
                                         </ul>
                                     </div>
                                     <div class="content">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa cupidatat non proident.</p>
+                                        <p><%= exerciseDetail.getExerciseDetailInfo()%></p>
                                     </div>
-                                    <div class="choose-body">
-                                        <h3>Why You Choose Body Building?</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris.</p>
-                                        <ul class="choose-list">
-                                            <li>It’s Help your body balance</li>
-                                            <li>Daily Work Freshness</li>
-                                            <li>Dummy text here</li>
-                                            <li>Your Text write her</li>
-                                        </ul>
-                                        <a href="#" class="custom-button" data-title="Join Class Today">Join Class Today</a>
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <!-- Start Related classes -->
