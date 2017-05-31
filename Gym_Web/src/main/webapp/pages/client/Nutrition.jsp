@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UIT-8"
+    pageEncoding="UIT-8"%>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <%@ page import="org.springframework.web.client.RestTemplate" %>
 <%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 

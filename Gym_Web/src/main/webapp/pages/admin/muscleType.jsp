@@ -1,3 +1,7 @@
+<%@page import="java.util.List"%>
+<%@page import="UIT.SE325H22.Group2.service.MuscleTypeService"%>
+<%@page import="org.springframework.web.client.RestTemplate"%>
+<%@page import="UIT.SE325H22.Group2.model.MuscleType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,6 +10,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
+<%
+
+// RestTemplate restTemplate = new RestTemplate();
+// List<MuscleType> bhutan = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getMuscleType/{id}", MuscleType.class,1);
+// System.out.println("Country Name:"+bhutan.getMuscleTypeName());
+//System.out.println("Population:"+bhutan.getPopulation()); 
+
+
+%>
 	<div class="wrapper">
 		<jsp:include page="/partial/admin/css_lib.jsp"></jsp:include>
 		<jsp:include page="/partial/admin/panel.jsp"></jsp:include>

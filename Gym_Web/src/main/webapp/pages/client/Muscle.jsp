@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="org.springframework.web.client.RestTemplate" %>
 <%@ page import="UIT.SE325H22.Group2.model.MuscleType" %>
 <%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %>
@@ -12,7 +12,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Gymedge | Classes</title>
+        <title>Gymedge</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="classes-title">
                                                 <h3><a href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
-                                                <p class="date">09.00 am - 10.00 Am</p>
+                                         
                                             </div>
                                         </div>
                                     </div>
@@ -91,23 +91,7 @@
                 </div>
             </div>
             <!-- End Classes page area -->
-            <!-- Start Fitness class summer area -->
-            <div class="fitness-summer-area padding-space">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="fitness-summer">
-                                <div class="fitness-content">
-                                    <h3>Fitness Classes This Summer.</h3>
-                                    <p>Pay Now and<br> Get <span>35%</span> Discount</p>
-                                    <a class="custom-button" data-title="Become A Member" href="#">Become A Member</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Fitness class summer area -->
+   
             <jsp:include page="/partial/client/footer.jsp"></jsp:include> <!-- include footer page -->   
 
             <!-- End copyright area -->

@@ -48,6 +48,7 @@
 		</beans:property>
 	</beans:bean>
 	
+
 	<context:component-scan base-package="UIT.SE325H22.Group2">
 		<context:include-filter type="aspectj" expression="UIT.SE325H22.Group2.*" />
 	</context:component-scan>
