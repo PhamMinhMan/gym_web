@@ -1,3 +1,6 @@
+<%@ page import="org.springframework.web.client.RestTemplate" %>
+<%@ page import="UIT.SE325H22.Group2.model.MuscleType" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <div class="col-lg-3 col-md-3 col-sm-3">
                             <div class="right-sidebar">
                                 <div class="single-sidebar">
@@ -8,14 +11,18 @@
                                     </div>
                                 </div>
                                 <div class="single-sidebar">
-                                    <h3>Categories</h3>
+                                    <h3>Nhóm cơ</h3>
+                                    <%
+	                                    RestTemplate restTemplate = new RestTemplate();
+					       				MuscleType[] listMuscleType = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllMuscleTypes", MuscleType[].class).getBody();
+					       				request.setAttribute("listMuscleType", listMuscleType);
+                                    %>
+                                    
                                     <div class="categories">
                                         <ul>
-                                            <li><a href="news.html">Fitness Classes</a></li>
-                                            <li><a href="news.html">Body Building</a></li>
-                                            <li><a href="news.html">Trainer</a></li>
-                                            <li><a href="news.html">Running</a></li>
-                                            <li><a href="news.html">Yoga</a></li>
+                                        	<c:forEach items="${listMuscleType}" var="muscleType"  >
+												<li><a href="/SpringRestHibernateExample/pages/client/Nutrition.jsp?Id=${muscleType.getId()}">${muscleType.getMuscleTypeName()}</a></li>
+											</c:forEach>  
                                         </ul>
                                     </div>
                                 </div>

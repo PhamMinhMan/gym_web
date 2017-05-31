@@ -56,7 +56,7 @@
                                 <div class="portfolioContainer zoom-gallery">               
                                 <%
                                 	ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllExerciseDetails", ExerciseDetail[].class).getBody();
-                                	request.setAttribute("listExerciseDetail", listExerciseDetail);  					
+                                	request.setAttribute("listExerciseDetail", listExerciseDetail); 
          						%>
                                    
 				         		   

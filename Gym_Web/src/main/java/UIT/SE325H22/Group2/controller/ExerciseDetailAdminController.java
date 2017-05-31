@@ -45,6 +45,18 @@ public class ExerciseDetailAdminController {
 		}
 		return exerciseDetailsById;
 	}
+	
+	@RequestMapping(value = "/getExerciseDetailsByMuscleId/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<ExerciseDetail> getExerciseDetailsByMuscleId(@PathVariable ("id") int id) {
+		//return new ExerciseDetail();
+		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAllExerciseDetails();
+		List<ExerciseDetail> exerciseDetailsById = new ArrayList<ExerciseDetail>();
+		for(ExerciseDetail exerciseDetail : exerciseDetails ){
+			if(exerciseDetail.getMuscleTypeId() == id)
+				exerciseDetailsById.add(exerciseDetail);
+		}
+		return exerciseDetailsById;
+	}
 
 	@RequestMapping(value = "/addExerciseDetail", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void addExerciseDetail(@RequestBody ExerciseDetail exerciseDetail) {	
