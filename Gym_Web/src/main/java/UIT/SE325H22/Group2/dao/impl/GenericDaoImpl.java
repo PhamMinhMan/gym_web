@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import UIT.SE325H22.Group2.dao.intf.IGenericDao;
 
 @Repository
-public abstract class GenericDaoImpl<E, K extends Serializable> implements IGenericDao<E, K> {
+public abstract class GenericDaoImpl<E, I extends Serializable> implements IGenericDao<E, I> {
 	@Autowired
 	private SessionFactory sessionFactory;
 	protected Class<? extends E> daoType;
@@ -40,14 +40,14 @@ public abstract class GenericDaoImpl<E, K extends Serializable> implements IGene
 	}
 
 	@Override
-	public void delete(E entity) {
-		currentSession().delete(entity);
+	public void delete(I id) {
+		currentSession().delete(id);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public E getById(K key) {
-		return (E) currentSession().get(daoType, key);
+	public E getById(I id) {
+		return (E) currentSession().get(daoType, id);
 	}
 
 	@SuppressWarnings("unchecked")

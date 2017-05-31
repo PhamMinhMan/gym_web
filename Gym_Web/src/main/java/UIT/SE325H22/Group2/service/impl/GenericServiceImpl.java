@@ -8,11 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 import UIT.SE325H22.Group2.dao.intf.IGenericDao;
 import UIT.SE325H22.Group2.service.intf.IGenericService;
 
-public abstract class GenericServiceImpl<E, K> implements IGenericService<E, K> {
+public abstract class GenericServiceImpl<E, I> implements IGenericService<E, I> {
 	@Autowired
-	private IGenericDao<E, K> genericDao;
+	private IGenericDao<E, I> genericDao;
 
-	public GenericServiceImpl(IGenericDao<E, K> genericDao) {
+	public GenericServiceImpl(IGenericDao<E, I> genericDao) {
 		this.genericDao = genericDao;
 	}
 
@@ -27,7 +27,7 @@ public abstract class GenericServiceImpl<E, K> implements IGenericService<E, K> 
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-	public E get(K id) {
+	public E get(I id) {
 		return genericDao.getById(id);
 	}
 
@@ -44,18 +44,11 @@ public abstract class GenericServiceImpl<E, K> implements IGenericService<E, K> 
 		genericDao.update(entity);
 		
 	}
-
-	@Override
-	@Transactional(propagation = Propagation.REQUIRED)
-	public void delete(E entity) {
-		genericDao.delete(entity);
-		
-	}
 	
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void deleteById(K id) {
-		genericDao.delete(get(id));
+	public void deleteById(I id) {
+//		genericDao.delete(get(id));
 		
 	}
 	
