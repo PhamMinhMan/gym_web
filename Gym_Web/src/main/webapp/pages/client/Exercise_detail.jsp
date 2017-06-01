@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="org.springframework.web.client.RestTemplate" %>
 <%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %> 
-       
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>       
 <%
 String id = request.getParameter("Id");
 RestTemplate restTemplate = new RestTemplate();
@@ -90,62 +90,29 @@ if(exerciseDetail == null)
                                     data-r-large="3"
                                     data-r-large-nav="true"
                                     data-r-large-dots="false">
-                                    <div class="single-related-classes">
-                                        <div class="classes-img">
-                                            <a href="#">
-                                                <img src="/SpringRestHibernateExample/resources/client/img/classes/yoga.jpg" alt="">
-                                            </a>
-                                            <div class="classes-overlay">
-                                                <a class="elv-zoom" href="img/classes/yoga.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="classes-title">
-                                            <h3><a href="single-classes.html">Classic Yoga</a></h3>
-                                            <p class="date">09.00 am - 10.00 Am</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-related-classes">
-                                        <div class="classes-img">
-                                            <a href="#">
-                                                <img src="/SpringRestHibernateExample/resources/client/img/classes/running.jpg" alt="">
-                                            </a>
-                                            <div class="classes-overlay">
-                                                <a class="elv-zoom" href="img/classes/running.jpg" title="Running"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="classes-title">
-                                            <h3><a href="single-classes.html">Running</a></h3>
-                                            <p class="date">09.00 am - 10.00 Am</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-related-classes">
-                                        <div class="classes-img">
-                                            <a href="#">
-                                                <img src="/SpringRestHibernateExample/resources/client/img/classes/meditation.jpg" alt="">
-                                            </a>
-                                            <div class="classes-overlay">
-                                                <a class="elv-zoom" href="img/classes/meditation.jpg" title="Meditation"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="classes-title">
-                                            <h3><a href="single-classes.html">Meditation</a></h3>
-                                            <p class="date">09.00 am - 10.00 Am</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-related-classes">
-                                        <div class="classes-img">
-                                            <a href="#">
-                                                <img src="/SpringRestHibernateExample/resources/client/img/classes/karate.jpg" alt="">
-                                            </a>
-                                            <div class="classes-overlay">
-                                                <a class="elv-zoom" href="img/classes/karate.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="classes-title">
-                                            <h3><a href="single-classes.html">Classic Yoga</a></h3>
-                                            <p class="date">09.00 am - 10.00 Am</p>
-                                        </div>
-                                    </div>
+                                    <%
+
+                                    ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getExerciseDetailsByMuscleId/{id}", ExerciseDetail[].class, exerciseDetail.getMuscleTypeId()).getBody() ;	
+                                    request.setAttribute("listExerciseDetail", listExerciseDetail);  
+                                    %>
+                                    <c:forEach items="${listExerciseDetail}" var="exerciseDetail"  >
+										<div class="single-related-classes">
+	                                        <div class="classes-img">
+	                                            <a href="#">
+	                                                <img src="${exerciseDetail.getExerciseDetailImage()}" alt="">
+	                                            </a>
+	                                            <div class="classes-overlay">
+	                                                <a class="elv-zoom" href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
+	                                            </div>
+	                                        </div>
+	                                        <div class="classes-title">
+	                                            <h3><a  href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
+	                                            <p class="date">09.00 am - 10.00 Am</p>
+	                                        </div>
+	                                    </div>
+									</c:forEach>  
+                                    
+                                    
                                 </div>
                             </div>
                             <!-- End Related classes -->
