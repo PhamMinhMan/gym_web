@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="UIT.SE325H22.Group2.service.MuscleTypeService"%>
+<%-- <%@page import="UIT.SE325H22.Group2.service.MuscleTypeService"%> --%>
 <%@page import="org.springframework.web.client.RestTemplate"%>
 <%@page import="UIT.SE325H22.Group2.model.MuscleType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
