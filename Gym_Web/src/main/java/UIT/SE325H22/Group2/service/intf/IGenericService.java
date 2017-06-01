@@ -2,11 +2,10 @@ package UIT.SE325H22.Group2.service.intf;
 
 import java.util.List;
 
-public interface IGenericService <E, K> {
+public interface IGenericService <E, I> {
     public List<E> getAll();
-    public E get(K id);
+    public E get(I id);
     public void insert(E entity);
     public void update(E entity);
-    public void delete(E entity);
-    public void deleteById(K id);
+    public void delete(I id);
 }

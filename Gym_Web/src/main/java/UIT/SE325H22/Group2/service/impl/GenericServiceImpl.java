@@ -3,13 +3,14 @@ package UIT.SE325H22.Group2.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import UIT.SE325H22.Group2.dao.intf.IGenericDao;
 import UIT.SE325H22.Group2.service.intf.IGenericService;
-
+@Service
 public abstract class GenericServiceImpl<E, I> implements IGenericService<E, I> {
-	@Autowired
+//	@Autowired
 	private IGenericDao<E, I> genericDao;
 
 	public GenericServiceImpl(IGenericDao<E, I> genericDao) {
@@ -47,8 +48,8 @@ public abstract class GenericServiceImpl<E, I> implements IGenericService<E, I> 
 	
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void deleteById(I id) {
-//		genericDao.delete(get(id));
+	public void delete(I id) {
+		genericDao.delete(id);
 		
 	}
 	

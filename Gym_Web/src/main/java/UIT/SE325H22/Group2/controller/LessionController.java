@@ -10,30 +10,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import UIT.SE325H22.Group2.model.Lession;
-import UIT.SE325H22.Group2.service.LessionService;
+import UIT.SE325H22.Group2.service.impl.LessionService;
+import UIT.SE325H22.Group2.service.intf.ILessionService;
 import UIT.SE325H22.Group2.viewmodel.LessionComboboxViewModel;
 
 @RestController
 public class LessionController {
 	@Autowired
-	LessionService lessionService;
+	ILessionService lessionService;
 	
 	@RequestMapping(value = "/getAllLessions", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Lession> getLessions() {
-		List<Lession> lessions = lessionService.getAllLessions();
+		List<Lession> lessions = lessionService.getAll();
 		return lessions;
 	}
 
 	@RequestMapping(value = "/getLession/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public Lession getLessionById(@PathVariable ("id") int id) {
 		//return new Lession();
-		return lessionService.getLession(id);
+		return lessionService.get(id);
 	}
 	
 	@RequestMapping(value = "/getLessionsById/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Lession> getLessionsById(@PathVariable ("id") int id) {
 		//return new Lession();
-		List<Lession> lessions = lessionService.getAllLessions();
+		List<Lession> lessions = lessionService.getAll();
 		List<Lession> lessionsById = new ArrayList<Lession>();
 		for(Lession lession : lessions ){
 			if(lession.getId() == id)
@@ -44,23 +45,23 @@ public class LessionController {
 
 	@RequestMapping(value = "/addLession", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void addLession(@RequestBody Lession lession) {	
-		lessionService.addLession(lession);
+		lessionService.insert(lession);
 	}
 
 	@RequestMapping(value = "/updateLession", method = RequestMethod.PUT, headers = "Accept=application/json")
 	public void updateLession(@RequestBody Lession lession) {
-		lessionService.updateLession(lession);
+		lessionService.update(lession);
 	}
 
 	@RequestMapping(value = "/deleteLession/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 	public void deleteLession(@PathVariable("id") int id) {
-		lessionService.deleteLession(id);
+		lessionService.delete(id);
 	}
 	
 
-	@RequestMapping(value = "/getLessionsCombobox", method = RequestMethod.GET, headers = "Accept=application/json")
-	public ArrayList<LessionComboboxViewModel> getLessionsCombobox() throws InstantiationException, IllegalAccessException {
-		ArrayList<LessionComboboxViewModel> lessions = lessionService.getLessionsCombobox();
-		return lessions;
-	}
+//	@RequestMapping(value = "/getLessionsCombobox", method = RequestMethod.GET, headers = "Accept=application/json")
+//	public ArrayList<LessionComboboxViewModel> getLessionsCombobox() throws InstantiationException, IllegalAccessException {
+//		ArrayList<LessionComboboxViewModel> lessions = lessionService.getLessionsCombobox();
+//		return lessions;
+//	}
 }
