@@ -54,6 +54,7 @@ var oldUpdate = Update;
 Update = function (data) {
 	oldUpdate(data);
 	$('#muscleType-image').attr('src',$(data['muscleTypeImage']).attr('src'));
+	$('#muscleTypeImage').val( $(data['muscleTypeImage']).attr('src'));
 	$('#muscleType-image').css('display','block');
 }
 
