@@ -9,18 +9,16 @@
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="logo-area">
-                                    <a href="index.html"><img src="/SpringRestHibernateExample/resources/client/img/logo-white.png" alt="logo"></a>
+                                    <a href="Home.jsp"><img src="/SpringRestHibernateExample/resources/client/img/logo-white.png" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="col-lg-10 col-md-10 col-sm-10">
                                 <div class="main-menu">
                                     <nav>
                                         <ul>
-                                           <li class="active"><a href="/">Trang chủ</a></li>
-                                    
-<!--                                             <li><a href="Exercise_detail.jsp">Bài tập</a></li> -->
-<!--                                             <li><a href="trainer.html">Trainers</a></li> -->
-                                            <li><a href="Nutrition.jsp">Dinh dưỡng</a></li>
+                                           <li class="active"><a href="Home.jsp">Trang chủ</a></li>
+                                  
+                                            <li><a href="ListNutrition.jsp">Dinh dưỡng</a></li>
                                             <li><a href="Muscle.jsp">Bài tập theo nhóm cơ</a></li> 
                                             <li><a href="Contact.jsp">Liên hệ</a></li>
                                         </ul>
@@ -39,7 +37,7 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li class="active"><a href="/">Trang chủ</a></li>
+                                            <li class="active"><a href="Home.jsp">Trang chủ</a></li>
 <!--                                             <li><a href="Exercise_detail.jsp">Bài tập</a></li> -->
                                             <li><a href="Nutrition.jsp">Dinh dưỡng</a></li> 
                                             <li><a href="Muscle.jsp">Bài tập theo nhóm cơ</a></li> 

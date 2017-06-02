@@ -22,6 +22,9 @@ import org.springframework.web.multipart.MultipartFile;
 import UIT.SE325H22.Group2.model.ExerciseDetail;
 //import UIT.SE325H22.Group2.service.impl.ExerciseDetailService;
 import UIT.SE325H22.Group2.service.intf.IExerciseDetailService;
+import UIT.SE325H22.Group2.viewmodel.ExerciseDetailViewModel;
+import UIT.SE325H22.Group2.viewmodel.Mapper;
+import UIT.SE325H22.Group2.viewmodel.ScheduleLessonMapViewModel;
 
 @RestController
 public class ExerciseDetailController {
@@ -33,6 +36,18 @@ public class ExerciseDetailController {
 		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAll();
 		return exerciseDetails;
 	}
+	
+
+	
+//	@RequestMapping(value = "/getAllExerciseDetailsHome", method = RequestMethod.GET, headers = "Accept=application/json")
+//	public List<ExerciseDetailViewModel> getAllExerciseDetailsHome() {
+//		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAll();
+//		ArrayList<ExerciseDetailViewModel> exerciseDetail;
+//	
+//			exerciseDetail = Mapper.copy((ArrayList)exerciseDetails, ExerciseDetailViewModel.class, null);
+//	
+//		return exerciseDetail;
+//	}
 
 	@RequestMapping(value = "/getExerciseDetail/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public ExerciseDetail getExerciseDetailById(@PathVariable ("id") int id) {
@@ -47,6 +62,18 @@ public class ExerciseDetailController {
 		List<ExerciseDetail> exerciseDetailsById = new ArrayList<ExerciseDetail>();
 		for(ExerciseDetail exerciseDetail : exerciseDetails ){
 			if(exerciseDetail.getId() == id)
+				exerciseDetailsById.add(exerciseDetail);
+		}
+		return exerciseDetailsById;
+	}
+	
+	@RequestMapping(value = "/getExerciseDetailsByMuscleId/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<ExerciseDetail> getExerciseDetailsByMuscleId(@PathVariable ("id") int id) {
+		//return new ExerciseDetail();
+		List<ExerciseDetail> exerciseDetails = exerciseDetailService.getAll();
+		List<ExerciseDetail> exerciseDetailsById = new ArrayList<ExerciseDetail>();
+		for(ExerciseDetail exerciseDetail : exerciseDetails ){
+			if(exerciseDetail.getMuscleTypeId() == id)
 				exerciseDetailsById.add(exerciseDetail);
 		}
 		return exerciseDetailsById;

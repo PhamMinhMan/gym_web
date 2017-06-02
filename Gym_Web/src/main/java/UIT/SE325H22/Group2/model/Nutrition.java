@@ -38,8 +38,13 @@ public class Nutrition extends Base {
 	}
 
 	public String getNutritionImage() {
-		return "<img src='" + nutritionImage + "'></img>";
+		return "<img class=\"img-responsive\" src='" + nutritionImage + "'></img>";
 	}
+	
+	public String getNutritionLinkImage() {
+		return nutritionImage;
+	}
+
 
 	public void setNutritionImage(String nutritionImage) {
 		this.nutritionImage = nutritionImage;

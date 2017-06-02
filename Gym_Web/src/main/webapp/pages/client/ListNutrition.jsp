@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.springframework.web.client.RestTemplate" %>
-<%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %> 
+<%@ page import="UIT.SE325H22.Group2.model.Nutrition" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%
-String id = request.getParameter("Id");
 RestTemplate restTemplate = new RestTemplate();
-ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getExerciseDetailsByMuscleId/{id}", ExerciseDetail[].class, id).getBody() ;	
-request.setAttribute("listExerciseDetail", listExerciseDetail);  
+Nutrition[] listNutrition = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllNutritions", Nutrition[].class).getBody() ;	
+request.setAttribute("listNutrition", listNutrition);  
 	
 %>
 <!doctype html>
@@ -23,7 +22,7 @@ request.setAttribute("listExerciseDetail", listExerciseDetail);
 		</style>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Danh sách bài tập</title>
+        <title>Danh sách dinh dưỡng</title>
         <meta name="description" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,17 +38,17 @@ request.setAttribute("listExerciseDetail", listExerciseDetail);
                     <div class="row">
                         <div class="col-lg-9 col-md-9 col-sm-9">
                             
-                            <c:forEach items="${listExerciseDetail}" var="exerciseDetail"  >
+                            <c:forEach items="${listNutrition}" var="nutrition"  >
 								 <div class="col-lg-6 col-md-6 col-sm-6">
 	                                <div class="single-news-page">
 	                                    <div class="single-news">
-	                                       ${exerciseDetail.getExerciseDetailLinkImage()}
+	                                       ${nutrition.getNutritionLinkImage()}
 	                                       
 	                                    </div>
 	                                    <div class="news-content">
-	                                        <h3 style="white-space:nowrap;overflow:hidden"><a href="single-news.html">${exerciseDetail.getExerciseDetailName()}</a></h3>
+	                                        <h3 style="white-space:nowrap;overflow:hidden"><a href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}">${nutrition.getNutritionName()}</a></h3>
 	                                        <p>Bài tập làm tăng cơ ngực , nở cơ mông , đẩy cong cơ đít ...</p>
-	                                        <a class="read-more" href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">Chi Tiết</a>
+	                                        <a class="read-more" href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}">Chi Tiết</a>
 	                                    </div>
 	                                </div>
 	                            </div>		

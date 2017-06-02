@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="org.springframework.web.client.RestTemplate" %>
 <%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %>
+<%@ page import="UIT.SE325H22.Group2.model.Nutrition" %>
+<%@ page import="UIT.SE325H22.Group2.model.Trainers" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!doctype html>
 <html class="no-js" lang="">
@@ -15,7 +17,16 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<jsp:include page="/partial/client/css_client.jsp"></jsp:include> <!-- include css -->   
-       
+        <style>
+        .image-exercise > .img-responsive {
+        	width : 273px;
+        	height: 273px;
+        }
+        .single-image > .img-responsive {
+        	width: 360px;
+        	height : 230px
+        }
+        </style>
     </head>
     <body>
 
@@ -84,17 +95,13 @@
                         	RestTemplate restTemplate = new RestTemplate();
                             ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllExerciseDetails", ExerciseDetail[].class).getBody();
                             request.setAttribute("listExerciseDetail", listExerciseDetail);
-                            for(ExerciseDetail exerciseDetail : listExerciseDetail )
-				       		{ 				
+                           			
          				%>
-                                   
-				         <%
-				       		}
-				         %> 
+                      
 				          <c:forEach items="${listExerciseDetail}" var="exerciseDetail"  >
 								<div class="single-product-classes3">
 			                            <div class="single-product hvr-bounce-to-bottom">
-			                                <a href="#"><img class="img-responsive" src="${exerciseDetail.getExerciseDetailImage()}" alt="${exerciseDetail.getExerciseDetailName()}"></a>
+			                                <a href="#" class="image-exercise">${exerciseDetail.getExerciseDetailLinkImage()}</a>
 			                                <div class="overlay-btn">
 			                                    <a href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}" class="btn-details">Details</a>
 			                                </div>
@@ -105,7 +112,8 @@
 			                            </div>
                        			 </div>
 							</c:forEach>         
-                    
+                    	
+                       
                         
                     </div>
                 </div>
@@ -122,51 +130,38 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="single-latest-news2">
-                                <div class="single-news">
-                                    <div class="single-image hvr-shutter-out-horizontal">
-                                        <img src="/SpringRestHibernateExample/resources/client/img/news/1.jpg" alt="news1" class="img-responsive">
-                                        <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-<!--                                     <div class="date">20<br>Jan<br>2016</div> -->
-                                </div>
-                                <div class="news-content">
-                                    <h3><a href="single-news.html">Beginer Yoga</a></h3>
-                                    <p>Timply dummy text of the printing and typery esetting industry koremn.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="single-latest-news2">
-                                <div class="single-news">
-                                    <div class="single-image hvr-shutter-out-horizontal">
-                                        <img src="/SpringRestHibernateExample/resources/client/img/news/2.jpg" alt="news1" class="img-responsive">
-                                        <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="date">20<br>Jan<br>2016</div>
-                                </div>
-                                <div class="news-content">
-                                    <h3><a href="single-news.html">Free Hand</a></h3>
-                                    <p>Timply dummy text of the printing and typery esetting industry koremn.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="single-latest-news2">
-                                <div class="single-news">
-                                    <div class="single-image hvr-shutter-out-horizontal">
-                                        <img src="/SpringRestHibernateExample/resources/client/img/news/3.jpg" alt="news1" class="img-responsive">
-                                        <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="date">20<br>Jan<br>2016</div>
-                                </div>
-                                <div class="news-content">
-                                    <h3><a href="single-news.html">Body Building</a></h3>
-                                    <p>Timply dummy text of the printing and typery esetting industry koremn.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <%
+                       
+                        	Nutrition[] listNutrition = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllNutritions", Nutrition[].class).getBody();
+                        	Nutrition[] listNutrition2 = new Nutrition[3] ;
+                        	for(int i = 0 ; i <  3 ; i ++)
+                        	{
+                        		listNutrition2[i] = listNutrition[i];
+                        	}
+                        	request.setAttribute("listNutrition", listNutrition2);
+                            
+                            Nutrition nutrition = new Nutrition();
+                           nutrition.getNutritionInfo();
+                           			
+         				%>
+                      	 <c:forEach items="${listNutrition}" var="nutrition"  >
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+	                            <div class="single-latest-news2">
+	                                <div class="single-news">
+	                                    <div class="single-image hvr-shutter-out-horizontal">
+	                                        ${nutrition.getNutritionLinkImage()}
+	                                        <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
+	                                    </div>
+	                                    
+	                                </div>
+	                                <div class="news-content">
+	                                    <h3><a href="single-news.html">${nutrition.getNutritionName()}</a></h3>
+	                                   
+	                                </div>
+                            	</div>
+                       		 </div>
+							</c:forEach> 
+                        
                     </div>
                 </div>
             </div>
@@ -231,10 +226,18 @@
                 </div> 
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <%
+      
+                            Trainers[] listTrainers = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllTrainers", Trainers[].class).getBody();
+                            request.setAttribute("listTrainers", listTrainers);
+                            Trainers trainer = new Trainers();
+                            trainer.getPosition();
+         				%>
+         				 <c:forEach items="${listTrainers}" var="trainer"  >
+							              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="trainer-box2">
                                 <div class="trainer-img-holder">
-                                    <img src="/SpringRestHibernateExample/resources/client/img/trainers/circle2.jpg" class="img-responsive" alt="team">
+                                    ${trainer.getTrainers_Linkimage()}
                                     <ul class="trainer-social">
                                         <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -243,62 +246,15 @@
                                     </ul>                                
                                 </div>                                
                                 <div class="trainer-content-holder">
-                                    <h3><a href="#">Henry Elizabeth</a></h3>
-                                    <p>Fitness</p>                                              
+                                    <h3><a href="#">${trainer.getTrainers_name()}</a></h3>
+                                    <p>${trainer.getPosition()}</p>                                              
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="trainer-box2">
-                                <div class="trainer-img-holder">
-                                    <img src="/SpringRestHibernateExample/resources/client/img/trainers/circle1.jpg" class="img-responsive" alt="team">
-                                    <ul class="trainer-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>                                
-                                </div>                                
-                                <div class="trainer-content-holder">
-                                    <h3><a href="#">John Micle</a></h3>
-                                    <p>Fitness</p>                                              
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="trainer-box2">
-                                <div class="trainer-img-holder">
-                                    <img src="/SpringRestHibernateExample/resources/client/img/trainers/circle3.jpg" class="img-responsive" alt="team">
-                                    <ul class="trainer-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>                                
-                                </div>                                
-                                <div class="trainer-content-holder">
-                                    <h3><a href="#">Susana Deo</a></h3>
-                                    <p>Fitness</p>                                              
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="trainer-box2">
-                                <div class="trainer-img-holder">
-                                    <img src="/SpringRestHibernateExample/resources/client/img/trainers/circle4.jpg" class="img-responsive" alt="team">
-                                    <ul class="trainer-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>                                
-                                </div>                                
-                                <div class="trainer-content-holder">
-                                    <h3><a href="#">Alexander</a></h3>
-                                    <p>Fitness</p>                                              
-                                </div>
-                            </div>
-                        </div>
+                       
+							</c:forEach> 
+          
+                        
                     </div>
                 </div>
             </div>

@@ -10,37 +10,58 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "trainers")
 public class Trainers extends Base{
+	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column(name = "id")
-	private String trainersName;
-	@Column(name = "id")
-	private String trainersImage;
-	@Column(name = "id")
-	private String position;
-	@Column(name = "id")
-	private String facebook;
-	@Column(name = "id")
-	private String email;
-	public String getTrainersName() {
-		return trainersName;
+	private int id ;
+	@Column(name ="trainers_name")
+	private String trainers_name ;
+	@Column(name ="trainers_image")
+	private String trainers_image ;
+	@Column(name ="position")
+	private String position ;
+	@Column(name ="phone")
+	private String phone ;
+	@Column(name ="facebook")
+	private String facebook ;
+	@Column(name ="email")
+	private String email ;
+	
+	
+	public int getId() {
+		return id;
 	}
-	public void setTrainersName(String trainersName) {
-		this.trainersName = trainersName;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getTrainersImage() {
-		return trainersImage;
+	public String getTrainers_name() {
+		return trainers_name;
 	}
-	public void setTrainersImage(String trainersImage) {
-		this.trainersImage = trainersImage;
+	public void setTrainers_name(String trainers_name) {
+		this.trainers_name = trainers_name;
+	}
+	public String getTrainers_image() {
+		return "<img class=\"img-responsive\" src='"+trainers_image+"'></img>";
+	}
+	
+	public String getTrainers_Linkimage() {
+		return trainers_image;
+	}
+	public void setTrainers_image(String trainers_image) {
+		this.trainers_image = trainers_image;
 	}
 	public String getPosition() {
 		return position;
 	}
 	public void setPosition(String position) {
 		this.position = position;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getFacebook() {
 		return facebook;
@@ -54,6 +75,4 @@ public class Trainers extends Base{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 }

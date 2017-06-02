@@ -20,6 +20,7 @@ public class ExerciseDetail extends Base {
 	private String exerciseDetailName;
 	@Column(name = "exercise_detail_image")
 	private String exerciseDetailImage;
+	
 	@Column(name = "exercise_detail_info")
 	private String exerciseDetailInfo;
 	@Column(name = "hiep")
@@ -30,6 +31,9 @@ public class ExerciseDetail extends Base {
 	private int timeExercise;
 	@Column(name = "videoID")
 	private String videoId;
+
+	
+
 
 	public int getId() {
 		return id;
@@ -56,8 +60,14 @@ public class ExerciseDetail extends Base {
 	}
 
 	public String getExerciseDetailImage() {
-		return "<img src='" + exerciseDetailImage + "'></img>";
+		return "<img class=\"img-responsive\"  src='" + exerciseDetailImage + "'></img>";
 	}
+	
+	public String getExerciseDetailLinkImage() {
+		return  exerciseDetailImage;
+	}
+	
+
 
 	public void setExerciseDetailImage(String exerciseDetailImage) {
 		this.exerciseDetailImage = exerciseDetailImage;

@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="">
-    
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>    
 <!-- Mirrored from radiustheme.com/demo/html/gymedge/multi-page/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 May 2017 14:10:30 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>

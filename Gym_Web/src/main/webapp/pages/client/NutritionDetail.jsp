@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.springframework.web.client.RestTemplate" %>
-<%@ page import="UIT.SE325H22.Group2.model.ExerciseDetail" %> 
+<%@ page import="UIT.SE325H22.Group2.model.Nutrition" %> 
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>       
 <%
 String id = request.getParameter("Id");
 RestTemplate restTemplate = new RestTemplate();
-ExerciseDetail exerciseDetail = restTemplate.getForObject("http://localhost:8080/SpringRestHibernateExample/getExerciseDetail/{id}", ExerciseDetail.class, id) ;	
-if(exerciseDetail == null)
+Nutrition nutrition = restTemplate.getForObject("http://localhost:8080/SpringRestHibernateExample/getNutrition/{id}", Nutrition.class, id) ;
+if(nutrition == null)
 {
 	response.sendRedirect("404.jsp");
 	return;
@@ -28,7 +28,7 @@ if(exerciseDetail == null)
 		</style>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><%= exerciseDetail.getExerciseDetailName() %></title>
+        <title><%= nutrition.getNutritionName()%></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -50,17 +50,17 @@ if(exerciseDetail == null)
                             <div class="single-class-detail">
                                 <div class="class-content">
                                     <div class="detail-img">
-                                       <%= exerciseDetail.getExerciseDetailLinkImage() %>
+                                       <%= nutrition.getNutritionLinkImage() %>
                                     </div>
                                     <div class="class-heading">
-                                        <h3><%= exerciseDetail.getExerciseDetailName() %></h3>
+                                        <h3><%= nutrition.getNutritionName() %></h3>
                                         <ul>
                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i>Class Time : 10.00 AM - 11.00 AM</li>
                                             <li><i class="fa fa-user" aria-hidden="true"></i>Trainer : <a href="#">DUYNK6</a></li>
                                         </ul>
                                     </div>
                                     <div class="content">
-                                        <p><%= exerciseDetail.getExerciseDetailInfo()%></p>
+                                        <p><%= nutrition.getNutritionInfo()%></p>
                                     </div>
                                    
                                 </div>
@@ -68,7 +68,7 @@ if(exerciseDetail == null)
                             <!-- Start Related classes -->
                             <div class="related-classes-area nav-on-hover padding-space">
                                 <div class="section-title">
-                                    <h2>Related Classes</h2>
+                                    <h2>NUTRITION</h2>
                                 </div>
                                 <div class="gym-carousel nav-control-top zoom-gallery"
                                     data-loop="true"
@@ -97,22 +97,21 @@ if(exerciseDetail == null)
                                     data-r-large-dots="false">
                                     <%
 
-                                    ExerciseDetail[] listExerciseDetail = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getExerciseDetailsByMuscleId/{id}", ExerciseDetail[].class, exerciseDetail.getMuscleTypeId()).getBody() ;	
-                                    request.setAttribute("listExerciseDetail", listExerciseDetail);  
+                                    Nutrition[] listNutrition = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getAllNutritions", Nutrition[].class).getBody() ;	
+                                    request.setAttribute("listNutrition", listNutrition); 
                                     %>
-                                    <c:forEach items="${listExerciseDetail}" var="exerciseDetail"  >
+                                    <c:forEach items="${listNutrition}" var="nutrition"  >
 										<div class="single-related-classes">
 	                                        <div class="classes-img">
 	                                            <a href="#">
-	                                                ${exerciseDetail.getExerciseDetailLinkImage()}
+	                                                ${nutrition.getNutritionLinkImage()}
 	                                            </a>
 	                                            <div class="classes-overlay">
-	                                                <a class="elv-zoom" href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
+	                                                <a class="elv-zoom" href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
 	                                            </div>
 	                                        </div>
 	                                        <div class="classes-title">
-	                                            <h3 style="height: 50px;padding: 0 10px;"><a style="font-size: 15px"  href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
-	                                            <p class="date">09.00 am - 10.00 Am</p>
+	                                            <h3 style="height: 50px;padding: 0 10px;"><a style="font-size: 15px"  href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}">${nutrition.getNutritionName()}</a></h3>
 	                                        </div>
 	                                    </div>
 									</c:forEach>  
