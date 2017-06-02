@@ -58,6 +58,7 @@ function ResetInput() {
 	$(".panel-title span").text("Add a new ... ")
 	$("[id$='-error']").remove();
 	$('#form').find(".error").removeClass("error");
+	$(".selectpicker").selectpicker('refresh');
 }
 
 function Update(data) {

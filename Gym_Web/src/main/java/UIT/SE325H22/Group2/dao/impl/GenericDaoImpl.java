@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import UIT.SE325H22.Group2.dao.intf.IGenericDao;
+import UIT.SE325H22.Group2.model.SinhVien;
 
 @Repository
 public abstract class GenericDaoImpl<E, I extends Serializable> implements IGenericDao<E, I> {
@@ -30,8 +31,9 @@ public abstract class GenericDaoImpl<E, I extends Serializable> implements IGene
 	}
 
 	@Override
-	public void insert(E entity) {
-		currentSession().save(entity);
+	public Integer insert(E entity) {
+		Integer a = (Integer) currentSession().save(entity);
+		return a ;
 	}
 
 	@Override
@@ -41,7 +43,14 @@ public abstract class GenericDaoImpl<E, I extends Serializable> implements IGene
 
 	@Override
 	public void delete(I id) {
-		currentSession().delete(id);
+		//Session session = this.sessionFactory.getCurrentSession();
+		
+		
+		E p = (E) currentSession().get(daoType, id);
+		if (null != p) {
+			currentSession().delete(p);
+		}
+	//	currentSession().delete(id);
 	}
 
 	@SuppressWarnings("unchecked")

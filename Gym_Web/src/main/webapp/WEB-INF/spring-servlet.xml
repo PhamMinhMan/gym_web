@@ -27,7 +27,7 @@
 		<beans:property name="annotatedClasses">
 			<beans:list>
 			<!-- TODO buoc1 them bean vao -->
-				<beans:value>UIT.SE325H22.Group2.model.ScheduleLession</beans:value>
+				<beans:value>UIT.SE325H22.Group2.model.ScheduleLesson</beans:value>
 				<beans:value>UIT.SE325H22.Group2.model.SinhVien</beans:value>
 				<beans:value>UIT.SE325H22.Group2.model.MuscleType</beans:value>
 				<beans:value>UIT.SE325H22.Group2.model.ExerciseDetail</beans:value>

@@ -15,7 +15,7 @@ public class Lession extends Base {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "lesson_name")
-	private String lessionName;
+	private String lessonName;
 	@Column(name = "lesson_image")
 	private String lessionImage;
 	@Column(name = "lesson_info")
@@ -29,12 +29,12 @@ public class Lession extends Base {
 		this.id = id;
 	}
 
-	public String getLessionName() {
-		return lessionName;
+	public String getLessonName() {
+		return lessonName;
 	}
 
-	public void setLessionName(String lessionName) {
-		this.lessionName = lessionName;
+	public void setLessonName(String lessonName) {
+		this.lessonName = lessonName;
 	}
 
 	public String getLessionImage() {

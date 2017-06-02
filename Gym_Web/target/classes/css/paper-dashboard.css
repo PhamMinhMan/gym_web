@@ -13799,3 +13799,6 @@ opacity
 .textarea-input {
 	margin-top: 10px;
 }
+.mce-widget.mce-notification.mce-notification-warning.mce-has-close.mce-in {
+    display: none;
+}

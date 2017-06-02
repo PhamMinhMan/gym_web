@@ -45,12 +45,12 @@ public class Schedule extends Base {
 		this.scheduleImage = scheduleImage;
 	}
 
-	public String getSchedulenInfo() {
+	public String getScheduleInfo() {
 		return scheduleInfo;
 	}
 
-	public void setSchedulenInfo(String schedulenInfo) {
-		this.scheduleInfo = schedulenInfo;
+	public void setScheduleInfo(String scheduleInfo) {
+		this.scheduleInfo = scheduleInfo;
 	}
 
 }

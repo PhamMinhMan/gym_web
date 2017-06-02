@@ -33,7 +33,7 @@
 										<div class="card-content">
 											<div id="collapse" class="panel-collapse collapse">
 												<div class="panel-body">
-													<form id="form" enctype="multipart/form-data" id="form"
+													<form id="form" enctype="multipart/form-data"
 														class="form-horizontal">
 														<input type="text" style="display: none;" name="id"
 															id="id">
@@ -51,8 +51,8 @@
 															<label class="col-sm-3 control-label"> Info <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="schedulenInfo"
-																	id="schedulenInfo" type="text" required="true"
+																<input class="form-control" name="scheduleInfo"
+																	id="scheduleInfo" type="text" required="true"
 																	autocomplete="off" aria-required="true">
 															</div>
 														</div>
@@ -70,7 +70,7 @@
 																Detail <star>*</star>
 															</label>
 															<div class="panel-group" id="panel-group-schedule">
-																<div class="panel-group-sm">
+																<div class="panel-group-sm" id="tuan1">
 																	<div class="col-sm-7">
 																		<div class="panel panel-border panel-default">
 																			<a data-toggle="collapse" href="#collapse1">
@@ -82,29 +82,34 @@
 																			</a>
 																			<div id="collapse1" class="panel-collapse collapse">
 																				<div class="panel-body">
-																					<div id="tuan1">
-																						<div class="form-group">
+																					<div id="group-tuan1">
+																						<div class="form-group" id="buoi1">
 																							<label class="col-sm-2 control-label">
 																								Buổi 1 <star>*</star>
 																							</label>
-																							<div class="col-sm-8">
-																								<select multiple class="selectpicker col-sm-12" data-live-search="true"
-																									title="Chọn lession" data-style="btn btn-block" name="" id="" data-ajax="/SpringRestHibernateExample/getLessionsCombobox">
-																									<option value="1">Temp1</option>
-																									<option value="2">Temp2</option>
+																							<div class="col-sm-8" id="select-html">
+																								<select multiple class="selectpicker col-sm-12"
+																									data-live-search="true" title="Chọn lession"
+																									data-style="btn btn-block"
+																									data-ajax="/SpringRestHibernateExample/getLessonsCombobox"
+																									value-member="id" display-member="lessonName"
+																									name="lesson-tuan1-buoi1"
+																									id="lesson-tuan1-buoi1">
 																								</select>
 																							</div>
+
 																							<div class="col-sm-2">
 																								<button type="button"
 																									class="btn btn-sm btn-success btn-add-input"
-																									onclick="AddInput(1);">
+																									onclick="AddInput(1);" id="addInput-tuan1">
 																									<span class="ti-plus"></span>
 																								</button>
 																							</div>
 																							<div class="col-sm-12 textarea-input">
 																								<textarea class="form-control"
-																									placeholder="Chi tiết..." rows="3" name="buoi1"
-																									id="buoi1"></textarea>
+																									placeholder="Chi tiết..." rows="3"
+																									name="lessonInfo-tuan1-buoi1"
+																									id="lessonInfo-tuan1-buoi1"></textarea>
 																							</div>
 																						</div>
 																					</div>
@@ -161,7 +166,7 @@
 														data-events="operateEvents"
 														data-formatter="operateFormatter">Action</th>
 													<th data-field="scheduleName">Tên lịch</th>
-													<th data-field="schedulenInfo">Info</th>
+													<th data-field="scheduleInfo">Info</th>
 													<th data-field="scheduleImage">Ảnh đại diện</th>
 												</tr>
 											</thead>
@@ -177,6 +182,18 @@
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/schedule.js"></script>
+		<script>
+			tinymce.init({
+				selector : 'textarea'
+			});
+			
+			var oldR = $('#bootstrap-table').bootstrapTable;
+			$('#bootstrap-table').bootstrapTable = function(refresh){
+				oldR(refresh);
+				alert('ok');
+			}
+		</script>
+
 	</div>
 </body>
 </html>

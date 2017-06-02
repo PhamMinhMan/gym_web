@@ -3,7 +3,7 @@ package UIT.SE325H22.Group2.viewmodel;
 public class ScheduleViewModel {
 	private String scheduleName;
 	private String scheduleImage;
-	private String schedulenInfo;
+	private String scheduleInfo;
 	public String getScheduleName() {
 		return scheduleName;
 	}
@@ -11,16 +11,18 @@ public class ScheduleViewModel {
 		this.scheduleName = scheduleName;
 	}
 	public String getScheduleImage() {
-		return scheduleImage;
+		if (scheduleImage.startsWith("https://firebasestorage"))
+				return "<img src='" + scheduleImage + "' alt='" + scheduleName + "' height='100' width='100'>";
+		return "<img src='resources/avatar/" + scheduleImage + "' alt='" + scheduleName + "' height='100' width='100'>";
 	}
 	public void setScheduleImage(String scheduleImage) {
 		this.scheduleImage = scheduleImage;
 	}
-	public String getSchedulenInfo() {
-		return schedulenInfo;
+	public String getScheduleInfo() {
+		return scheduleInfo;
 	}
-	public void setSchedulenInfo(String schedulenInfo) {
-		this.schedulenInfo = schedulenInfo;
+	public void setScheduleInfo(String scheduleInfo) {
+		this.scheduleInfo = scheduleInfo;
 	}
 	
 	

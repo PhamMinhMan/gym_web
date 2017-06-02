@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import UIT.SE325H22.Group2.model.Lession;
 import UIT.SE325H22.Group2.service.impl.LessionService;
 import UIT.SE325H22.Group2.service.intf.ILessionService;
-import UIT.SE325H22.Group2.viewmodel.LessionComboboxViewModel;
+import UIT.SE325H22.Group2.viewmodel.LessonComboboxViewModel;
 
 @RestController
 public class LessionController {
@@ -57,11 +57,10 @@ public class LessionController {
 	public void deleteLession(@PathVariable("id") int id) {
 		lessionService.delete(id);
 	}
-	
 
-//	@RequestMapping(value = "/getLessionsCombobox", method = RequestMethod.GET, headers = "Accept=application/json")
-//	public ArrayList<LessionComboboxViewModel> getLessionsCombobox() throws InstantiationException, IllegalAccessException {
-//		ArrayList<LessionComboboxViewModel> lessions = lessionService.getLessionsCombobox();
-//		return lessions;
-//	}
+	@RequestMapping(value = "/getLessonsCombobox", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ArrayList<LessonComboboxViewModel> getLessonsCombobox() throws InstantiationException, IllegalAccessException {
+		ArrayList<LessonComboboxViewModel> lessons = lessionService.getLessonsCombobox();
+		return lessons;
+	}
 }

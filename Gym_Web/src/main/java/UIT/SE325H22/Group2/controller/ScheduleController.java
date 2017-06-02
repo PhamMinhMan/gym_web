@@ -11,44 +11,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import UIT.SE325H22.Group2.model.Schedule;
-import UIT.SE325H22.Group2.service.ScheduleService;
-import UIT.SE325H22.Group2.viewmodel.Demo2;
-import UIT.SE325H22.Group2.viewmodel.ScheduleLessionAdmin.ScheduleLessionViewModel;
+import UIT.SE325H22.Group2.service.intf.IScheduleService;
+import UIT.SE325H22.Group2.viewmodel.Mapper;
+import UIT.SE325H22.Group2.viewmodel.ScheduleViewModel;
+import UIT.SE325H22.Group2.viewmodel.ScheduleLessonAdmin.ScheduleLessonViewModel;
 
 @RestController
 public class ScheduleController {
 	@Autowired
-	ScheduleService ScheduleService;
-	
-	@RequestMapping(value = "/getAllSchedules", method = RequestMethod.GET, headers = "Accept=application/json")
-	public List<Schedule> getSchedules() {
-		List<Schedule> Schedules = ScheduleService.getAllSchedules();
-		return Schedules;
-	}
+	IScheduleService ScheduleService;
 
+	@RequestMapping(value = "/getAllSchedules", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<ScheduleViewModel> getSchedules() throws InstantiationException, IllegalAccessException {
+		List<Schedule> Schedules = ScheduleService.getAll();
+		ArrayList<ScheduleViewModel> schedule = Mapper.copy((ArrayList)Schedules, ScheduleViewModel.class, null);
+		return schedule;
+	}
+	
 	@RequestMapping(value = "/getSchedule/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public Schedule getScheduleById(@PathVariable ("id") int id) {
 		//return new Schedule();
-		return ScheduleService.getSchedule(id);
+		return ScheduleService.get(id);
 	}
 
 	@RequestMapping(value = "/addSchedule", method = RequestMethod.POST, headers = "Accept=application/json")
-	public void addSchedule(@RequestBody Schedule Schedule) {	
-		ScheduleService.addSchedule(Schedule);
-	}
-	
-	@RequestMapping(value = "/addScheduleLession", method = RequestMethod.POST, headers = "Accept=application/json")
-	public void addScheduleLession(@RequestBody ScheduleLessionViewModel scheduleLessionViewModel) {	
-		ScheduleService.addScheduleLession(scheduleLessionViewModel);
+	public void addSchedule(@RequestBody Schedule schedule) {	
+		ScheduleService.insert(schedule);
 	}
 
 	@RequestMapping(value = "/updateSchedule", method = RequestMethod.PUT, headers = "Accept=application/json")
-	public void updateSchedule(@RequestBody Schedule Schedule) {
-		ScheduleService.updateSchedule(Schedule);
+	public void updateSchedule(@RequestBody Schedule schedule) {
+		ScheduleService.update(schedule);
 	}
 
 	@RequestMapping(value = "/deleteSchedule/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-	public void deleteSchedule(@PathVariable("id") int id) {
-		ScheduleService.deleteSchedule(id);
+	public void deleteSchedule(@PathVariable("id") Integer id) {
+		ScheduleService.delete(id);
 	}
 }
