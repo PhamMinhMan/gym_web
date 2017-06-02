@@ -38,7 +38,7 @@ public class Nutrition extends Base {
 	}
 
 	public String getNutritionImage() {
-		return nutritionImage;
+		return "<img src='" + nutritionImage + "'></img>";
 	}
 
 	public void setNutritionImage(String nutritionImage) {

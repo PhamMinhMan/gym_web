@@ -37,7 +37,7 @@ public class SongOnline extends Base{
 		this.id = id;
 	}
 	public String getImage() {
-		return image;
+		return "<img src='" + image + "'></img>";
 	}
 	public void setImage(String image) {
 		this.image = image;

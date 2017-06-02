@@ -47,22 +47,25 @@
 																	autocomplete="off" aria-required="true">
 															</div>
 														</div>
-<div class="form-group">
+														<div class="form-group">
 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input type="file" id="file" name="imageFile"> <input
-																	type="text" style="display: none;"
-																	id="lessionImage" name="lessionImage">
+																<input type="file" id="file" name="imageFile"
+																	accept="image/x-png,image/gif,image/jpeg"> <input
+																	type="text" style="display: none;" id="lessionImage"
+																	name="lessionImage">
 															</div>
-															
+
 															<img id="lession-image" width="200" height="200"
-																	style="margin-top: 30px;text-align: center;display: none ;margin-left: 258px;" src=""> </img>
-															
+																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+																src=""> </img>
+
 														</div>
-														
+
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Thông tin giáo án <star>*</star>
+															<label class="col-sm-4 control-label"> Thông tin
+																giáo án <star>*</star>
 															</label>
 															<div class="col-sm-7">
 																<input class="form-control" name="lesionInfo"
@@ -124,31 +127,30 @@
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/lession.js"></script>
 	</div>
-	
-	
+
+
 	<script>
-	function doUpload() {
-		var formData = new FormData();
-		formData.append('file', $('#file')[0].files[0]);
+		function doUpload() {
+			var formData = new FormData();
+			formData.append('file', $('#file')[0].files[0]);
 
-		$.ajax({
-			url : '/SpringRestHibernateExample/uploadFile',
-			type : 'POST',
-			data : formData,
-			processData : false, // tell jQuery not to process the data
-			contentType : false, // tell jQuery not to set contentType
-			success : function(data) {
-				$('#lessionImage').val(data);
-				$('#lession-image').attr('src',data);
-				$('#lession-image').css('display','block');
-			}
+			$.ajax({
+				url : '/SpringRestHibernateExample/uploadFile',
+				type : 'POST',
+				data : formData,
+				processData : false, // tell jQuery not to process the data
+				contentType : false, // tell jQuery not to set contentType
+				success : function(data) {
+					$('#lessionImage').val(data);
+					$('#lession-image').attr('src', data);
+					$('#lession-image').css('display', 'block');
+				}
+			});
+		}
+
+		$('#file').change(function() {
+			doUpload();
 		});
-	}
-
-	$('#file').change(function() {
-		doUpload();
-	});
-	
 	</script>
 </body>
 </html>

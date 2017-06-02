@@ -49,3 +49,15 @@ function DELETE(data) {
 		}
 	});
 }
+
+var oldUpdate = Update;
+Update = function (data) {
+	oldUpdate(data);
+	$('#song-image').attr('src',$(data['image']).attr('src'));
+	$('#song-image').css('display','block');
+}
+
+$('#clear').click(function(e){
+	e.preventDefault();
+	$('#song-image').css('display','none');
+});

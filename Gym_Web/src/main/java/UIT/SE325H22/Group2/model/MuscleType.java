@@ -39,7 +39,7 @@ public class MuscleType extends Base{
 		this.muscleTypeName = muscleTypeName;
 	}
 	public String getMuscleTypeImage() {
-		return muscleTypeImage;
+		return "<img src='" + muscleTypeImage + "'></img>";
 	}
 	public void setMuscleTypeImage(String muscleTypeImage) {
 		this.muscleTypeImage = muscleTypeImage;

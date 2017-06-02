@@ -49,3 +49,16 @@ function DELETE(data) {
 		}
 	});
 }
+
+var oldUpdate = Update;
+Update = function (data) {
+	oldUpdate(data);
+//	$('#file').val(data['exerciseDetailImage']);
+	$('#nutrition-image').attr('src',$(data['nutritionImage']).attr('src'));
+	$('#nutrition-image').css('display','block');
+}
+
+$('#clear').click(function(e){
+	e.preventDefault();
+	$('#nutrition-image').css('display','none');
+});

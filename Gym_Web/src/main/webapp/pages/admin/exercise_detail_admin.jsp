@@ -134,7 +134,7 @@
 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input type="file" id="file" name="imageFile"> <input
+																<input type="file" id="file" name="imageFile" accept="image/x-png,image/gif,image/jpeg"> <input
 																	type="text" style="display: none;"
 																	id="exerciseDetailImage" name="exerciseDetailImage">
 															</div>

@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import UIT.SE325H22.Group2.model.Nutrition;
 import UIT.SE325H22.Group2.model.Nutrition;
 import UIT.SE325H22.Group2.service.intf.INutritionService;
+import UIT.SE325H22.Group2.service.intf.INutritionService;
+import UIT.SE325H22.Group2.viewmodel.LessonComboboxViewModel;
 
 @RestController
 public class NutritionController {
@@ -52,14 +56,8 @@ public class NutritionController {
 	}
 
 	@RequestMapping(value = "/deleteNutrition/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-	public void deleteNutrition(@PathVariable("id") int id) {
+	public void deleteNutrition(@PathVariable("id") Integer id) {
 		nutritionService.delete(id);
 	}
-	
 
-//	@RequestMapping(value = "/getNutritionsCombobox", method = RequestMethod.GET, headers = "Accept=application/json")
-//	public ArrayList<NutritionComboboxViewModel> getNutritionsCombobox() throws InstantiationException, IllegalAccessException {
-//		ArrayList<NutritionComboboxViewModel> nutritions = nutritionService.getNutritionsCombobox();
-//		return nutritions;
-//	}
 }

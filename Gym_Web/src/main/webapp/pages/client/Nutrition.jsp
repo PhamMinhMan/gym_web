@@ -14,12 +14,11 @@ request.setAttribute("listExerciseDetail", listExerciseDetail);
 <!doctype html>
 <html class="no-js" lang="">
     
-<!-- Mirrored from radiustheme.com/demo/html/gymedge/multi-page/news.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 May 2017 14:10:12 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Danh sách nhóm cơ</title>
+        <title>Dinh dưỡng</title>
         <meta name="description" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,12 +26,8 @@ request.setAttribute("listExerciseDetail", listExerciseDetail);
       	<jsp:include page="/partial/client/css_client.jsp"></jsp:include> <!-- include css -->  
     </head>
     <body>
-        <!-- Start wrapper -->
         <div class="wrapper">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-            <jsp:include page="/partial/client/header-top.jsp"></jsp:include> <!-- include  header-top -->  
+            <jsp:include page="/partial/client/header-top.jsp"></jsp:include> 
             <!-- Start latest news area -->
             <div class="news-page-area padding-space">
                 <div class="container">
@@ -54,8 +49,6 @@ request.setAttribute("listExerciseDetail", listExerciseDetail);
 	                                </div>
 	                            </div>		
 							</c:forEach>     
-                     
-                           
                             
                         </div>
                         <jsp:include page="/partial/client/right-slidebar.jsp"></jsp:include> <!-- include slide bar page --> 
@@ -67,11 +60,7 @@ request.setAttribute("listExerciseDetail", listExerciseDetail);
         </div>
         <!-- End wrapper -->
         <a href="#" class="scrollToTop"></a>
-
-
         <jsp:include page="/partial/client/js_client.jsp"></jsp:include> <!-- include js -->  
 
     </body>
-
-<!-- Mirrored from radiustheme.com/demo/html/gymedge/multi-page/news.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 May 2017 14:10:20 GMT -->
 </html>

@@ -49,3 +49,15 @@ function DELETE(data) {
 		}
 	});
 }
+
+var oldUpdate = Update;
+Update = function (data) {
+	oldUpdate(data);
+	$('#muscleType-image').attr('src',$(data['muscleTypeImage']).attr('src'));
+	$('#muscleType-image').css('display','block');
+}
+
+$('#clear').click(function(e){
+	e.preventDefault();
+	$('#muscleType-image').css('display','none');
+});

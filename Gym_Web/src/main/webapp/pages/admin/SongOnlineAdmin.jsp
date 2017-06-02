@@ -38,14 +38,19 @@
 															id="id">
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Hình ảnh<star>*</star>
+															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="image"
-																	id="image" type="text" required="true"
-																	autocomplete="off" aria-required="true">
+																<input type="file" id="file" name="imageFile"
+																	accept="image/x-png,image/gif,image/jpeg"> <input
+																	type="text" style="display: none;" id="image"
+																	name="image">
 															</div>
-														</div>
+
+															<img id="song-image" width="200" height="200"
+																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+																src=""> </img>
+																</div>
 
 														<div class="form-group">
 															<label class="col-sm-4 control-label"> Tên bài hát <star>*</star>
@@ -130,5 +135,28 @@
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/songOnlineAdmin.js"></script>
 	</div>
+	<script>
+		function doUpload() {
+			var formData = new FormData();
+			formData.append('file', $('#file')[0].files[0]);
+
+			$.ajax({
+				url : '/SpringRestHibernateExample/uploadFile',
+				type : 'POST',
+				data : formData,
+				processData : false, // tell jQuery not to process the data
+				contentType : false, // tell jQuery not to set contentType
+				success : function(data) {
+					$('#image').val(data);
+					$('#song-image').attr('src', data);
+					$('#song-image').css('display', 'block');
+				}
+			});
+		}
+
+		$('#file').change(function() {
+			doUpload();
+		});
+	</script>
 </body>
 </html>

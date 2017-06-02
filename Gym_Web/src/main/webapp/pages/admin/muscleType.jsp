@@ -2,7 +2,8 @@
 <%-- <%@page import="UIT.SE325H22.Group2.service.MuscleTypeService"%> --%>
 <%@page import="org.springframework.web.client.RestTemplate"%>
 <%@page import="UIT.SE325H22.Group2.model.MuscleType"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +12,12 @@
 </head>
 <body>
 
-<%
-
-// RestTemplate restTemplate = new RestTemplate();
-// List<MuscleType> bhutan = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getMuscleType/{id}", MuscleType.class,1);
-// System.out.println("Country Name:"+bhutan.getMuscleTypeName());
-//System.out.println("Population:"+bhutan.getPopulation()); 
-
-
-%>
+	<%
+		// RestTemplate restTemplate = new RestTemplate();
+		// List<MuscleType> bhutan = restTemplate.getForEntity("http://localhost:8080/SpringRestHibernateExample/getMuscleType/{id}", MuscleType.class,1);
+		// System.out.println("Country Name:"+bhutan.getMuscleTypeName());
+		//System.out.println("Population:"+bhutan.getPopulation());
+	%>
 	<div class="wrapper">
 		<jsp:include page="/partial/admin/css_lib.jsp"></jsp:include>
 		<jsp:include page="/partial/admin/panel.jsp"></jsp:include>
@@ -50,35 +48,41 @@
 														<input type="text" style="display: none;" name="id"
 															id="id">
 
-													
+
 
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Tên nhóm cơ <star>*</star>
+															<label class="col-sm-4 control-label"> Tên nhóm
+																cơ <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="muscleTypeName" id="muscleTypeName"
-																	type="text" required="true" autocomplete="off"
-																	aria-required="true">
+																<input class="form-control" name="muscleTypeName"
+																	id="muscleTypeName" type="text" required="true"
+																	autocomplete="off" aria-required="true">
 															</div>
+														</div>
+
+														<div class="form-group">
+															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
+															</label>
+															<div class="col-sm-7">
+																<input type="file" id="file" name="imageFile"
+																	accept="image/x-png,image/gif,image/jpeg"> <input
+																	type="text" style="display: none;" id="muscleTypeImage"
+																	name="muscleTypeImage">
+															</div>
+
+															<img id="muscleType-image" width="200" height="200"
+																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+																src=""> </img>
 														</div>
 
 <!-- 														<div class="form-group"> -->
-<!-- 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star> -->
-<!-- 															</label> -->
+<!-- 															<label class="col-sm-4 control-label"> Hình ảnh </label> -->
 <!-- 															<div class="col-sm-7"> -->
-<!-- 																<input class="form-control" name="muscleTypeImage" id="muscleTypeImage" -->
-<!-- 																	type="text" required="true" autocomplete="off" -->
-<!-- 																	aria-required="true"> -->
+<!-- 																<input class="form-control" name="muscleTypeImage" -->
+<!-- 																	type="file" autocomplete="off"> -->
 <!-- 															</div> -->
 <!-- 														</div> -->
-														
-														<div class="form-group">
-															<label class="col-sm-4 control-label"> Hình ảnh </label>
-															<div class="col-sm-7">
-																<input class="form-control" name="muscleTypeImage" type="file"
-																	autocomplete="off">
-															</div>
-														</div>
 
 														<div class="card-footer text-center">
 															<button type="submit" id="add"
@@ -86,7 +90,8 @@
 																<span class="btn-label"> <i class="fa fa-check"></i>
 																	<span class="smooth">ADD</span></span>
 															</button>
-															<button type="button" id="clear" class="btn btn-wd btn-default">
+															<button type="button" id="clear"
+																class="btn btn-wd btn-default">
 																<span class="btn-label"> <i class="fa fa-times"></i>
 																</span> CLEAR
 															</button>
@@ -129,7 +134,31 @@
 			</div>
 		</div>
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
-		<script src="/SpringRestHibernateExample/resources/js/admin/muscleType.js"></script>
+		<script
+			src="/SpringRestHibernateExample/resources/js/admin/muscleType.js"></script>
 	</div>
+	<script>
+		function doUpload() {
+			var formData = new FormData();
+			formData.append('file', $('#file')[0].files[0]);
+
+			$.ajax({
+				url : '/SpringRestHibernateExample/uploadFile',
+				type : 'POST',
+				data : formData,
+				processData : false, // tell jQuery not to process the data
+				contentType : false, // tell jQuery not to set contentType
+				success : function(data) {
+					$('#muscleTypeImage').val(data);
+					$('#muscleType-image').attr('src', data);
+					$('#muscleType-image').css('display', 'block');
+				}
+			});
+		}
+
+		$('#file').change(function() {
+			doUpload();
+		});
+	</script>
 </body>
 </html>

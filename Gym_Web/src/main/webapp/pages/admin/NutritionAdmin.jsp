@@ -46,45 +46,43 @@
 																	autocomplete="off" aria-required="true">
 															</div>
 														</div>
-
-														<!-- 														<div class="form-group"> -->
-														<!-- 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star> -->
-														<!-- 															</label> -->
-														<!-- 															<div class="col-sm-7"> -->
-														<!-- 																<input class="form-control" name="muscleTypeImage" id="muscleTypeImage" -->
-														<!-- 																	type="text" required="true" autocomplete="off" -->
-														<!-- 																	aria-required="true"> -->
-														<!-- 															</div> -->
-														<!-- 														</div> -->
-
 														<div class="form-group">
-															<label class="col-sm-4 control-label"> Hình ảnh </label>
-															<div class="col-sm-7">
-																<input class="form-control" name="nutritionImage"
-																	type="file" autocomplete="off">
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="col-sm-4 control-label"> Nội dung bài viết <star>*</star>
+															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="nutritionInfo"
-																	id="nutritionInfo" type="text" required="true"
-																	autocomplete="off" aria-required="true">
+																<input type="file" id="file" name="imageFile"
+																	accept="image/x-png,image/gif,image/jpeg"> <input
+																	type="text" style="display: none;" id="nutritionImage"
+																	name="nutritionImage">
 															</div>
-														</div>
-														<div class="card-footer text-center">
-															<button type="submit" id="add"
-																class="btn btn-wd btn-success" name="POST">
-																<span class="btn-label"> <i class="fa fa-check"></i>
-																	<span class="smooth">ADD</span></span>
-															</button>
-															<button type="button" id="clear"
-																class="btn btn-wd btn-default">
-																<span class="btn-label"> <i class="fa fa-times"></i>
-																</span> CLEAR
-															</button>
-														</div>
+
+															<img id="nutrition-image" width="200" height="200"
+																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+																src=""> </img>
+																</div>
+																
+															<div class="form-group">
+																<label class="col-sm-4 control-label"> Nội dung
+																	bài viết <star>*</star>
+																</label>
+																<div class="col-sm-7">
+																	<input class="form-control" name="nutritionInfo"
+																		id="nutritionInfo" type="text" required="true"
+																		autocomplete="off" aria-required="true">
+																</div>
+															</div>
+															<div class="card-footer text-center">
+																<button type="submit" id="add"
+																	class="btn btn-wd btn-success" name="POST">
+																	<span class="btn-label"> <i class="fa fa-check"></i>
+																		<span class="smooth">ADD</span></span>
+																</button>
+																<button type="button" id="clear"
+																	class="btn btn-wd btn-default">
+																	<span class="btn-label"> <i class="fa fa-times"></i>
+																	</span> CLEAR
+																</button>
+															</div>
 													</form>
 												</div>
 											</div>
@@ -108,7 +106,7 @@
 												<tr>
 													<th data-field="actions" class="td-actions"
 														data-events="operateEvents"
-														data-formatter="operateFormatter">Action</th>
+														data-formatter="operateFormatter">Thao tác</th>
 													<th data-field="nutritionName">Tên bài</th>
 													<th data-field="nutritionImage">Hình ảnh</th>
 													<th data-field="nutritionInfo">Nội dung bài viết</th>
@@ -127,5 +125,28 @@
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/nutrition.js"></script>
 	</div>
+	<script>
+		function doUpload() {
+			var formData = new FormData();
+			formData.append('file', $('#file')[0].files[0]);
+
+			$.ajax({
+				url : '/SpringRestHibernateExample/uploadFile',
+				type : 'POST',
+				data : formData,
+				processData : false, // tell jQuery not to process the data
+				contentType : false, // tell jQuery not to set contentType
+				success : function(data) {
+					$('#nutritionImage').val(data);
+					$('#nutrition-image').attr('src', data);
+					$('#nutrition-image').css('display', 'block');
+				}
+			});
+		}
+
+		$('#file').change(function() {
+			doUpload();
+		});
+	</script>
 </body>
 </html>
