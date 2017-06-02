@@ -61,3 +61,8 @@ $('#clear').click(function(e){
 	e.preventDefault();
 	$('#song-image').css('display','none');
 });
+
+$('#add').click(function(e){
+	e.preventDefault();
+	$('#muscleType-image').css('display','none');
+});

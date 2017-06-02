@@ -76,14 +76,6 @@
 																src=""> </img>
 														</div>
 
-<!-- 														<div class="form-group"> -->
-<!-- 															<label class="col-sm-4 control-label"> Hình ảnh </label> -->
-<!-- 															<div class="col-sm-7"> -->
-<!-- 																<input class="form-control" name="muscleTypeImage" -->
-<!-- 																	type="file" autocomplete="off"> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-
 														<div class="card-footer text-center">
 															<button type="submit" id="add"
 																class="btn btn-wd btn-success" name="POST">

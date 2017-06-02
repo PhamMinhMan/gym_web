@@ -63,6 +63,11 @@ $('#clear').click(function(e){
 	$('#lession-image').css('display','none');
 });
 
+$('#add').click(function(e){
+	e.preventDefault();
+	$('#muscleType-image').css('display','none');
+});
+
 //$('#expand').click(function(e){
 //	e.preventDefault();
 //	$('#image_exercise').css('display','none');

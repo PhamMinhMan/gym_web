@@ -68,6 +68,10 @@ $('#clear').click(function(e){
 	$($('#videoLink').parent().find('iframe')[0]).attr('src','');
 });
 
+$('#add').click(function(e){
+	e.preventDefault();
+	$('#muscleType-image').css('display','none');
+});
 //$('#expand').click(function(e){
 //	e.preventDefault();
 //	$('#image_exercise').css('display','none');
