@@ -15,8 +15,13 @@
         <title>Gymedge</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
        	<jsp:include page="/partial/client/css_client.jsp"></jsp:include> <!-- include css -->  
+        <style>
+        	.classes-img > a > img {
+        		width: 300px ;
+        		height: 300px
+        	}
+        </style>
     </head>
     <body>
         <!-- Start wrapper -->
@@ -65,14 +70,14 @@
                                         <div class="single-classes-area">
                                             <div class="classes-img">
                                                 <a href="#">
-                                                    <img src="${exerciseDetail.getExerciseDetailImage()}"  alt="yoga">
+                                                    ${exerciseDetail.getExerciseDetailLinkImage()}
                                                 </a>
                                                 <div class="classes-overlay">
                                                     <a class="elv-zoom" href="img/classes/yoga.jpg" title="Classic Yoga"><i class="fa fa-search" aria-hidden="true"></i></a>
                                                 </div>
                                             </div>
                                             <div class="classes-title">
-                                                <h3><a href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
+                                                <h3 style="height: 50px;padding: 0 10px;"><a style="font-size: 15px" href="/SpringRestHibernateExample/pages/client/Exercise_detail.jsp?Id=${exerciseDetail.getId()}">${exerciseDetail.getExerciseDetailName()}</a></h3>
                                          
                                             </div>
                                         </div>
