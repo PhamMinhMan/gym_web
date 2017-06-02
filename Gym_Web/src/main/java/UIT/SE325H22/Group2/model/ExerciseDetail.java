@@ -56,7 +56,7 @@ public class ExerciseDetail extends Base {
 	}
 
 	public String getExerciseDetailImage() {
-		return exerciseDetailImage;
+		return "<img src='" + exerciseDetailImage + "'></img>";
 	}
 
 	public void setExerciseDetailImage(String exerciseDetailImage) {

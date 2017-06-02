@@ -42,29 +42,25 @@
 																án <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="lessionName"
-																	id="lessionName" type="text" required="true"
+																<input class="form-control" name="lessonName"
+																	id="lessonName" type="text" required="true"
 																	autocomplete="off" aria-required="true">
 															</div>
 														</div>
-
-														<!-- 														<div class="form-group"> -->
-														<!-- 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star> -->
-														<!-- 															</label> -->
-														<!-- 															<div class="col-sm-7"> -->
-														<!-- 																<input class="form-control" name="muscleTypeImage" id="muscleTypeImage" -->
-														<!-- 																	type="text" required="true" autocomplete="off" -->
-														<!-- 																	aria-required="true"> -->
-														<!-- 															</div> -->
-														<!-- 														</div> -->
-
-														<div class="form-group">
-															<label class="col-sm-4 control-label"> Hình ảnh </label>
+<div class="form-group">
+															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
+															</label>
 															<div class="col-sm-7">
-																<input class="form-control" name="lessionImage"
-																	type="file" autocomplete="off">
+																<input type="file" id="file" name="imageFile"> <input
+																	type="text" style="display: none;"
+																	id="lessionImage" name="lessionImage">
 															</div>
+															
+															<img id="lession-image" width="200" height="200"
+																	style="margin-top: 30px;text-align: center;display: none ;margin-left: 258px;" src=""> </img>
+															
 														</div>
+														
 														<div class="form-group">
 															<label class="col-sm-4 control-label"> Thông tin giáo án <star>*</star>
 															</label>
@@ -109,10 +105,10 @@
 												<tr>
 													<th data-field="actions" class="td-actions"
 														data-events="operateEvents"
-														data-formatter="operateFormatter">Action</th>
-													<th data-field="lessionName">Tên giáo án</th>
-													<th data-field="lessionImage">Hình ảnh</th>
-													<th data-field="lesionInfo">Thông tin giáo án</th>
+														data-formatter="operateFormatter"><b>Thao tác</b></th>
+													<th data-field="lessonName"><b>Tên giáo án</b></th>
+													<th data-field="lessionImage"><b>Hình ảnh</b></th>
+													<th data-field="lesionInfo"><b>Thông tin giáo án</b></th>
 												</tr>
 											</thead>
 										</table>
@@ -128,5 +124,31 @@
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/lession.js"></script>
 	</div>
+	
+	
+	<script>
+	function doUpload() {
+		var formData = new FormData();
+		formData.append('file', $('#file')[0].files[0]);
+
+		$.ajax({
+			url : '/SpringRestHibernateExample/uploadFile',
+			type : 'POST',
+			data : formData,
+			processData : false, // tell jQuery not to process the data
+			contentType : false, // tell jQuery not to set contentType
+			success : function(data) {
+				$('#lessionImage').val(data);
+				$('#lession-image').attr('src',data);
+				$('#lession-image').css('display','block');
+			}
+		});
+	}
+
+	$('#file').change(function() {
+		doUpload();
+	});
+	
+	</script>
 </body>
 </html>

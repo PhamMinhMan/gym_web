@@ -8,9 +8,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <style>
-	.btn-group.bootstrap-select {
-	    width: 100%;
-	}
+.btn-group.bootstrap-select {
+	width: 100%;
+}
 </style>
 </head>
 <body>
@@ -40,7 +40,7 @@
 											<div id="collapse" class="panel-collapse collapse">
 												<div class="panel-body">
 
-												
+
 
 													<div id='output'></div>
 
@@ -52,12 +52,11 @@
 														<div class="form-group">
 															<input class="combobox_input" style="display: none"
 																name="muscleTypeId" id="muscleTypeId" /> <label
-																class="col-sm-4 control-label"><star>*</star></label>
+																class="col-sm-4 control-label">Chọn nhóm cơ <star>*</star></label>
 
 															<div class="col-sm-7">
-																<select class="selectpicker"
-																	title="Chọn nhóm cơ" data-style="btn btn-block" name=""
-																	id=""
+																<select class="selectpicker" title="Chọn nhóm cơ"
+																	data-style="btn btn-block" name="" id=""
 																	data-ajax="/SpringRestHibernateExample/muscleTypeComboboxs"
 																	value-member="id" display-member="muscleTypeName">
 																</select>
@@ -111,9 +110,10 @@
 															<label class="col-sm-4 control-label">Video <star>*</star>
 															</label>
 															<div class="col-sm-7 video-control">
-																<input style="" name="videoId" id="videoId" />
-																<input class="form-control" name="videoLink" id="videoLink" type="text" required="true"
-																	autocomplete="off" aria-required="true">
+																<input style="display:none;" name="videoId" id="videoId" /> <input
+																	class="form-control" name="videoLink" id="videoLink"
+																	type="text" required="true" autocomplete="off"
+																	aria-required="true">
 
 																<iframe width="420" height="315"
 																	style="margin-top: 20px;" src=""> </iframe>
@@ -134,10 +134,14 @@
 															<label class="col-sm-4 control-label"> Hình ảnh <star>*</star>
 															</label>
 															<div class="col-sm-7">
-																<input type="file" id="file" name="imageFile">
-																<input type="text" style="display: none;" id="exerciseDetailImage" name="exerciseDetailImage">
-															
+																<input type="file" id="file" name="imageFile"> <input
+																	type="text" style="display: none;"
+																	id="exerciseDetailImage" name="exerciseDetailImage">
 															</div>
+															
+															<img id="image_exercise" width="200" height="200"
+																	style="margin-top: 30px;text-align: center;display: none ;margin-left: 258px;" src=""> </img>
+															
 														</div>
 
 
@@ -198,85 +202,94 @@
 			</div>
 		</div>
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
-		<script	src="/SpringRestHibernateExample/resources/js/admin/exercise_detail_admin.js"></script>
-		<script	src="/SpringRestHibernateExample/resources/js/common/combobox_get_from_server.js"></script>
-		<script	src="/SpringRestHibernateExample/resources/js/common/video_control.js"></script>
+		<script
+			src="/SpringRestHibernateExample/resources/js/admin/exercise_detail_admin.js"></script>
+		<script
+			src="/SpringRestHibernateExample/resources/js/common/combobox_get_from_server.js"></script>
+		<script
+			src="/SpringRestHibernateExample/resources/js/common/video_control.js"></script>
 		<script src="http://malsup.github.com/jquery.form.js"></script>
 		<script>
-		
-	/*	function showRequest(formData, jqForm, options) { 
-		    var queryString = $.param(formData); 
-		    alert('About to submit: \n\n' + queryString); 
-		    return true; 
-		} 
-		 
-		// post-submit callback 
-		function showResponse(responseText, statusText, xhr, $form)  { 
-		    alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-		        '\n\nThe output div should have already been updated with the responseText.'); 
-		} 
+			/*	function showRequest(formData, jqForm, options) { 
+				    var queryString = $.param(formData); 
+				    alert('About to submit: \n\n' + queryString); 
+				    return true; 
+				} 
+				 
+				// post-submit callback 
+				function showResponse(responseText, statusText, xhr, $form)  { 
+				    alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
+				        '\n\nThe output div should have already been updated with the responseText.'); 
+				} 
 
-	      var options = { 
-	          target:        '#output1',
-	          beforeSubmit:  showRequest,
-	          success:       showResponse
-	      }; 
-	      $('#myForm').ajaxForm(options); */
-	      
-	      function doUpload(){
-	    	  var formData = new FormData();
-		      formData.append('file', $('#file')[0].files[0]);
+			      var options = { 
+			          target:        '#output1',
+			          beforeSubmit:  showRequest,
+			          success:       showResponse
+			      }; 
+			      $('#myForm').ajaxForm(options); */
 
-		      $.ajax({
-		             url : '/SpringRestHibernateExample/uploadFile',
-		             type : 'POST',
-		             data : formData,
-		             processData: false,  // tell jQuery not to process the data
-		             contentType: false,  // tell jQuery not to set contentType
-		             success : function(data) {
-		            	 $('#exerciseDetailImage').val(data);
-		             }
-		      });
-	      }
-	      
-	      
-	      $('#file').change(function(){
-	    	  doUpload();
-	      });
-	      
-	      
-	      $("#myForm").submit(function (event) {
-	    	    event.preventDefault();
-	    	    //grab all form data  
-	    	    var formData = $(this).serialize();
+			function doUpload() {
+				var formData = new FormData();
+				formData.append('file', $('#file')[0].files[0]);
 
-	    	 $.ajax({
-	    	        url: '/SpringRestHibernateExample/uploadFile',
-	    	        type: 'POST',
-	    	        data: formData,
-	    	        async: false,
-	    	        cache: false,
-	    	        contentType: false,
-	    	        processData: false,
-	    	        success: function (returndata) {
-	    	        $("#myForm").html(returndata);
-	    	        alert(formData);
-	    	        },
-	    	        error: function(){
-	    	            alert("error in ajax form submission");
-	    	            }
-	    	    });
+				$.ajax({
+					url : '/SpringRestHibernateExample/uploadFile',
+					type : 'POST',
+					data : formData,
+					processData : false, // tell jQuery not to process the data
+					contentType : false, // tell jQuery not to set contentType
+					success : function(data) {
+						$('#exerciseDetailImage').val(data);
+						$('#image_exercise').attr('src',data);
+						$('#image_exercise').css('display','block');
+					}
+				});
+			}
 
-	    	    return false;
-	    	    });
-	      
-	      $('#videoId').change(function(e){
-	    		var videoLink = "https://www.youtube.com/embed/"+$('#videoId').val()+"?autoplay=1";
-//	    		$($(val).find('input')[0]).val(id);
-	    		$($(val).find('iframe')[0]).attr('src',videoLink);
-//	    		 var link = 'https://www.youtube.com/watch?v='+$('#videoId').val();
-	    	});
-	      
+			$('#file').change(function() {
+				doUpload();
+			});
+
+			$("#myForm").submit(function(event) {
+				event.preventDefault();
+				//grab all form data  
+				var formData = $(this).serialize();
+
+				$.ajax({
+					url : '/SpringRestHibernateExample/uploadFile',
+					type : 'POST',
+					data : formData,
+					async : false,
+					cache : false,
+					contentType : false,
+					processData : false,
+					success : function(returndata) {
+						$("#myForm").html(returndata);
+						alert(formData);
+					},
+					error : function() {
+						alert("error in ajax form submission");
+					}
+				});
+
+				return false;
+			});
+
+			$('#videoId').change(
+					function(e) {
+						var videoLink = "https://www.youtube.com/embed/"
+								+ $('#videoId').val() + "?autoplay=1";
+						//	    		$($(val).find('input')[0]).val(id);
+						$($(val).find('iframe')[0]).attr('src', videoLink);
+						//	    		 var link = 'https://www.youtube.com/watch?v='+$('#videoId').val();
+					});
+		</script>
+
+		<script>
+			tinymce.init({
+				selector : 'textarea'
+			});
 		</script>
 	</div>
 </body>

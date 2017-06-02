@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import UIT.SE325H22.Group2.model.Lession;
-import UIT.SE325H22.Group2.service.impl.LessionService;
 import UIT.SE325H22.Group2.service.intf.ILessionService;
 import UIT.SE325H22.Group2.viewmodel.LessonComboboxViewModel;
 
@@ -54,7 +53,7 @@ public class LessionController {
 	}
 
 	@RequestMapping(value = "/deleteLession/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-	public void deleteLession(@PathVariable("id") int id) {
+	public void deleteLession(@PathVariable("id") Integer id) {
 		lessionService.delete(id);
 	}
 

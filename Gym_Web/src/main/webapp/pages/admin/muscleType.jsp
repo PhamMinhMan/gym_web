@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+<%-- <%@page import="java.util.List"%> --%>
 <%-- <%@page import="UIT.SE325H22.Group2.service.MuscleTypeService"%> --%>
 <%@page import="org.springframework.web.client.RestTemplate"%>
 <%@page import="UIT.SE325H22.Group2.model.MuscleType"%>

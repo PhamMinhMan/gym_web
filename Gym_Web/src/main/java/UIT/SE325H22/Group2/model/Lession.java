@@ -38,7 +38,7 @@ public class Lession extends Base {
 	}
 
 	public String getLessionImage() {
-		return lessionImage;
+		return "<img src='" + lessionImage + "'></img>";
 	}
 
 	public void setLessionImage(String lessionImage) {

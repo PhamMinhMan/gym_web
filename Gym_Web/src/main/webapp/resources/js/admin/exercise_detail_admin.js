@@ -49,3 +49,30 @@ function DELETE(data) {
 		}
 	});
 }
+
+var oldUpdate = Update;
+Update = function (data) {
+	oldUpdate(data);
+	tinymce.get('exerciseDetailInfo').setContent(data['exerciseDetailInfo']);
+	$('#videoLink').val('https://www.youtube.com/watch?v=' + data['videoId']);
+	var videoLink = "https://www.youtube.com/embed/"+data['videoId']+"?autoplay=1";
+	$($('#videoLink').parent().find('iframe')[0]).attr('src',videoLink);
+//	$('#file').val(data['exerciseDetailImage']);
+	$('#image_exercise').attr('src',$(data['exerciseDetailImage']).attr('src'));
+	$('#image_exercise').css('display','block');
+}
+
+$('#clear').click(function(e){
+	e.preventDefault();
+	$('#image_exercise').css('display','none');
+	$($('#videoLink').parent().find('iframe')[0]).attr('src','');
+});
+
+//$('#expand').click(function(e){
+//	e.preventDefault();
+//	$('#image_exercise').css('display','none');
+//	$('#file').val('');
+//	$($('#videoLink').parent().find('iframe')[0]).attr('src','');
+//});
+
+

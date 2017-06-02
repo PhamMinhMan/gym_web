@@ -49,3 +49,23 @@ function DELETE(data) {
 		}
 	});
 }
+
+var oldUpdate = Update;
+Update = function (data) {
+	oldUpdate(data);
+//	$('#file').val(data['exerciseDetailImage']);
+	$('#lession-image').attr('src',$(data['lessionImage']).attr('src'));
+	$('#lession-image').css('display','block');
+}
+
+$('#clear').click(function(e){
+	e.preventDefault();
+	$('#lession-image').css('display','none');
+});
+
+//$('#expand').click(function(e){
+//	e.preventDefault();
+//	$('#image_exercise').css('display','none');
+//	$('#file').val('');
+//});
+
