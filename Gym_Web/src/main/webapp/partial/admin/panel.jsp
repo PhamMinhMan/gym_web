@@ -25,7 +25,7 @@
 						<p>Dashboard</p>
 					</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a data-toggle="collapse" href="#Examples"> <i
 						class="ti-clipboard"></i>
 						<p>Example <b class="caret"></b></p>
@@ -40,12 +40,15 @@
 							</a></li>
 						</ul>
 					</div>
-				</li>
+				</li> -->
 				<li><a href="schedule.jsp"> <i class="ti-calendar"></i>
 						<p>Schedule</p>
 				</a></li>
+				<li><a href="exercise_detail_admin.jsp"> <i class="material-icons">&#xe84e;</i>
+						<p>Exercise Detail</p>
+				</a></li>
 				<li><a href="LessionAdmin.jsp"> <i class="fa fa-address-book"></i>
-						<p>Lession</p>
+						<p>Lesson</p>
 				</a></li>
 				<li><a href="NutritionAdmin.jsp"> <i class="material-icons">&#xeb46;</i>
 						<p>Nutrition</p>
@@ -56,6 +59,7 @@
 				<li><a href="muscleType.jsp"> <i class="material-icons">&#xe84e;</i>
 						<p>Muscle Type</p>
 				</a></li>
+				
 <!-- 				Tham khảo icon tại đây -->
 <!-- 				https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
 			</ul>

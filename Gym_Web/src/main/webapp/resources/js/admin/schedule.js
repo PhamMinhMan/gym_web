@@ -38,9 +38,6 @@ function AddInput(week) {
 		$("#group-tuan" + week).append(fieldWrapper);
 		$("#group-tuan" + week).find(".form-group:last").slideDown("fast");
 		selectpicker();
-//		$("#group-tuan" + week).tinymce.init({
-//			selector : 'textarea'
-//		});
 		tinyMCE();
 	}
 	else {
@@ -211,6 +208,9 @@ var olđUpate = Update;
 Update = function(data) {
 	olđUpate(data);
 	var url = "/SpringRestHibernateExample/getScheduleLessonViewModel/" + data.id;
+	$('#scheduleImage').val( $(data['scheduleImage']).attr('src'));
+	$('#image_schedule').attr('src',$(data['scheduleImage']).attr('src'));
+	$('#image_schedule').css('display','block');
 	$.get(url, function(data) {
 		var num;
 		CleanPanel();
@@ -237,6 +237,16 @@ Update = function(data) {
 		Message("Thất bại", "Đã có lỗi xảy ra!", "danger");
 	});
 };
+
+$('#clear').click(function(e){
+	e.preventDefault();
+	$('#image_schedule').css('display','none');
+});
+
+$('#add').click(function(e){
+	e.preventDefault();
+	$('#image_schedule').css('display','none');
+});
 
 function UpdateData(data){
 	$.each(data.weeks, function(index_weeks, week){

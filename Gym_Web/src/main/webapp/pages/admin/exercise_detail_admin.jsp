@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Example</title>
+<title>Exercise Detail</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <style>
@@ -56,7 +56,7 @@
 
 															<div class="col-sm-7">
 																<select class="selectpicker" title="Chọn nhóm cơ"
-																	data-style="btn btn-block" name="" id=""
+																	data-style="btn btn-block" name="" id="selectmuscleType"
 																	data-ajax="/SpringRestHibernateExample/muscleTypeComboboxs"
 																	value-member="id" display-member="muscleTypeName">
 																</select>

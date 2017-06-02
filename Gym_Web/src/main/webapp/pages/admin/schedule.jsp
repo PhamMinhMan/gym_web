@@ -58,11 +58,17 @@
 														</div>
 
 														<div class="form-group">
-															<label class="col-sm-3 control-label"> Avatar </label>
+															<label class="col-sm-3 control-label"> Hình ảnh
+															</label>
 															<div class="col-sm-7">
-																<input class="form-control notcheck" name="scheduleImage" id="scheduleImage"
-																	type="file" autocomplete="off">
+																<input type="file" id="file" name="imageFile" accept="image/x-png,image/gif,image/jpeg" class="notcheck"> <input
+																	type="text" style="display: none;"
+																	id="scheduleImage" name="scheduleImage">
 															</div>
+															
+															<img id="image_schedule" width="200" height="200"
+																	style="margin-top: 55px;text-align: center;display: none;margin-left: 262px;" src=""> </img>
+															
 														</div>
 
 														<div class="form-group">
@@ -182,6 +188,29 @@
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/schedule.js"></script>
+			<script>
+				function doUpload() {
+					var formData = new FormData();
+					formData.append('file', $('#file')[0].files[0]);
+	
+					$.ajax({
+						url : '/SpringRestHibernateExample/uploadFile',
+						type : 'POST',
+						data : formData,
+						processData : false, // tell jQuery not to process the data
+						contentType : false, // tell jQuery not to set contentType
+						success : function(data) {
+							$('#scheduleImage').val(data);
+							$('#image_schedule').attr('src',data);
+							$('#image_schedule').css('display','block');
+						}
+					});
+				}
+	
+				$('#file').change(function() {
+					doUpload();
+				});
+			</script>
 	</div>
 </body>
 </html>

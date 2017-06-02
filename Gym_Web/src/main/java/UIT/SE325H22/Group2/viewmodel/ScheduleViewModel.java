@@ -12,9 +12,7 @@ public class ScheduleViewModel {
 		this.scheduleName = scheduleName;
 	}
 	public String getScheduleImage() {
-		if (scheduleImage.startsWith("https://firebasestorage"))
-				return "<img src='" + scheduleImage + "' alt='" + scheduleName + "' height='100' width='100'>";
-		return "<img src='resources/avatar/" + scheduleImage + "' alt='" + scheduleName + "' height='100' width='100'>";
+		return "<img src='" + scheduleImage + "' alt='" + scheduleName + "' height='100' width='100'>";
 	}
 	public void setScheduleImage(String scheduleImage) {
 		this.scheduleImage = scheduleImage;
