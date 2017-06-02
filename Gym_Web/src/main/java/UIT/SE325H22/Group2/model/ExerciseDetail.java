@@ -22,7 +22,7 @@ public class ExerciseDetail extends Base {
 	private String exerciseDetailImage;
 	@Column(name = "exercise_detail_info")
 	private String exerciseDetailInfo;
-	@Column(name = "set")
+	@Column(name = "hiep")
 	private int set;
 	@Column(name = "timeBreak")
 	private int timeBreak;

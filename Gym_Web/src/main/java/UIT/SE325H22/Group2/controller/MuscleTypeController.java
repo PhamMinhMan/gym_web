@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import UIT.SE325H22.Group2.model.MuscleType;
 import UIT.SE325H22.Group2.service.intf.IMuscleTypeService;
+import UIT.SE325H22.Group2.viewmodel.MuscleTypeComboboxViewModel;
 
 @RestController
 public class MuscleTypeController {
@@ -55,4 +56,10 @@ public class MuscleTypeController {
 	public void deleteMuscleType(@PathVariable("id") int id) {
 		muscleTypeService.delete(id);
 	}
+	
+	@RequestMapping(value = "/muscleTypeComboboxs", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ArrayList<MuscleTypeComboboxViewModel> muscleTypeComboboxs() throws InstantiationException, IllegalAccessException{
+		return muscleTypeService.muscleTypeComboboxs();
+	}
+
 }
