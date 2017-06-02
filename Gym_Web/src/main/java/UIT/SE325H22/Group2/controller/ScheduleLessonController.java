@@ -41,22 +41,25 @@ public class ScheduleLessonController {
 		// return new ScheduleLesson();
 		return ScheduleLessonService.get(id);
 	}
+	
+	@RequestMapping(value = "/getScheduleLessonViewModel/{scheduleId}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ScheduleLessonViewModel getScheduleLessonViewModel(@PathVariable("scheduleId") int scheduleId) throws InstantiationException, IllegalAccessException {
+		// return new ScheduleLesson();
+		return ScheduleLessonService.getViewModel(scheduleId);
+	}
 
 	@RequestMapping(value = "/addScheduleLesson", method = RequestMethod.POST, headers = "Accept=application/json")
 	public void addScheduleLesson(@RequestBody ScheduleLessonViewModel scheduleLessonViewModel) {
 		ScheduleLessonService.inserts(scheduleLessonViewModel);
 	}
-	//
-	// @RequestMapping(value = "/updateScheduleLesson", method =
-	// RequestMethod.PUT, headers = "Accept=application/json")
-	// public void updateScheduleLesson(@RequestBody ScheduleLesson
-	// scheduleLesson) {
-	// ScheduleLessonService.update(scheduleLesson);
-	// }
-	//
-	// @RequestMapping(value = "/deleteScheduleLesson/{id}", method =
-	// RequestMethod.DELETE, headers = "Accept=application/json")
-	// public void deleteScheduleLesson(@PathVariable("id") int id) {
-	// ScheduleLessonService.delete(id);
-	// }
+	
+	 @RequestMapping(value = "/updateScheduleLesson", method = RequestMethod.PUT, headers = "Accept=application/json")
+	 public void updateScheduleLesson(@RequestBody ScheduleLessonViewModel scheduleLessonViewModel) {
+		 ScheduleLessonService.updates(scheduleLessonViewModel);
+	 }
+	 
+	 @RequestMapping(value = "/deleteScheduleLesson/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+	 public void deleteScheduleLesson(@PathVariable("id") int id) {
+		 ScheduleLessonService.delete(id);
+	 }
 }

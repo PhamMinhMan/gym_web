@@ -60,7 +60,7 @@
 														<div class="form-group">
 															<label class="col-sm-3 control-label"> Avatar </label>
 															<div class="col-sm-7">
-																<input class="form-control" name="scheduleImage"
+																<input class="form-control notcheck" name="scheduleImage" id="scheduleImage"
 																	type="file" autocomplete="off">
 															</div>
 														</div>
@@ -73,7 +73,7 @@
 																<div class="panel-group-sm" id="tuan1">
 																	<div class="col-sm-7">
 																		<div class="panel panel-border panel-default">
-																			<a data-toggle="collapse" href="#collapse1">
+																			<a data-toggle="collapse" href="#collapse1" class="click-action">
 																				<div class="panel-heading">
 																					<h4 class="panel-title">
 																						Tuần 1 <i class="ti-angle-down"></i>
@@ -182,18 +182,6 @@
 		<jsp:include page="/partial/admin/js_lib.jsp"></jsp:include>
 		<script
 			src="/SpringRestHibernateExample/resources/js/admin/schedule.js"></script>
-		<script>
-			tinymce.init({
-				selector : 'textarea'
-			});
-			
-			var oldR = $('#bootstrap-table').bootstrapTable;
-			$('#bootstrap-table').bootstrapTable = function(refresh){
-				oldR(refresh);
-				alert('ok');
-			}
-		</script>
-
 	</div>
 </body>
 </html>

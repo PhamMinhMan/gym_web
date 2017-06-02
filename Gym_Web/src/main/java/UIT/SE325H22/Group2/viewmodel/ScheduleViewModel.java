@@ -1,6 +1,7 @@
 package UIT.SE325H22.Group2.viewmodel;
 
 public class ScheduleViewModel {
+	private int id;
 	private String scheduleName;
 	private String scheduleImage;
 	private String scheduleInfo;
@@ -23,6 +24,12 @@ public class ScheduleViewModel {
 	}
 	public void setScheduleInfo(String scheduleInfo) {
 		this.scheduleInfo = scheduleInfo;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

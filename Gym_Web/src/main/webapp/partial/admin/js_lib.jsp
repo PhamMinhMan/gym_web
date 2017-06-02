@@ -56,7 +56,8 @@
 <!--   Sharrre Library    -->
 <script src="/SpringRestHibernateExample/resources/js/common/jquery.sharrre.js"></script>
 
-<script src="/SpringRestHibernateExample/resources/js/common/main.js"></script>
-<script src="/SpringRestHibernateExample/resources/js/common/table.js"></script>
 <script src="/SpringRestHibernateExample/resources/js/common/combobox_get_from_server.js" type="text/javascript"></script>
 <script src = "/SpringRestHibernateExample/resources/js/common/tinymce.min.js" type="text/javascript"></script>
+
+<script src="/SpringRestHibernateExample/resources/js/common/main.js"></script>
+<script src="/SpringRestHibernateExample/resources/js/common/table.js"></script>

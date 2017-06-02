@@ -7,6 +7,7 @@ public class ScheduleLessonViewModel {
 	private String scheduleName;
 	private String scheduleImage;
 	private String scheduleInfo;
+	private int scheduleId;
 
 	public ArrayList<WeekViewModel> getWeeks() {
 		return weeks;
@@ -38,5 +39,13 @@ public class ScheduleLessonViewModel {
 
 	public void setScheduleName(String scheduleName) {
 		this.scheduleName = scheduleName;
+	}
+
+	public int getScheduleId() {
+		return scheduleId;
+	}
+
+	public void setScheduleId(int scheduleId) {
+		this.scheduleId = scheduleId;
 	}
 }

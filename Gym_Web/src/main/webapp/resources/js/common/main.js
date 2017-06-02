@@ -63,9 +63,11 @@ function ResetInput() {
 
 function Update(data) {
 	$("#form input").each(function() {
-		name = this.name;
-		value = data[name];
-		$("#" + name).val(value);
+		if (!$(this).hasClass("notcheck")){
+			name = this.name;
+			value = data[name];
+			$("#" + name).val(value);
+		}
 	});
 	if (!$("#collapse").hasClass("in")) {
 		$("#expand").click();
@@ -108,4 +110,14 @@ function setNavigation() {
             $(this).closest('li').parent().closest('li').find('a').click();
         }
     });
+}
+
+function tinyMCE(){
+	tinymce.init({
+		selector : 'textarea'
+	});
+}
+
+function selectpicker(){
+	$('.selectpicker').selectpicker({});	
 }
