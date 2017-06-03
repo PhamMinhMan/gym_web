@@ -150,12 +150,12 @@
 	                                <div class="single-news">
 	                                    <div class="single-image hvr-shutter-out-horizontal">
 	                                        ${nutrition.getNutritionLinkImage()}
-	                                        <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
+	                                        <a href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}"><i class="fa fa-link" aria-hidden="true"></i></a>
 	                                    </div>
 	                                    
 	                                </div>
 	                                <div class="news-content">
-	                                    <h3><a href="single-news.html">${nutrition.getNutritionName()}</a></h3>
+	                                    <h3><a href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}">${nutrition.getNutritionName()}</a></h3>
 	                                   
 	                                </div>
                             	</div>

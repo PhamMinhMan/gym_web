@@ -38,11 +38,75 @@
 </servlet-mapping>
 
 
+<servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <jsp-file>/pages/client/Home.jsp</jsp-file>
+</servlet>
+<!--mapping-->
+<servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/trangchu</url-pattern>   
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>Map1</servlet-name>
+    <jsp-file>/pages/client/ListNutrition.jsp</jsp-file>
+</servlet>
+<!--mapping-->
+<servlet-mapping>
+    <servlet-name>Map1</servlet-name>
+    <url-pattern>/danhsachdinhduong</url-pattern>   
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>Map2</servlet-name>
+    <jsp-file>/pages/client/Muscle.jsp</jsp-file>
+</servlet>
+<!--mapping-->
+<servlet-mapping>
+    <servlet-name>Map2</servlet-name>
+    <url-pattern>/danhsachnhomco</url-pattern>   
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>Map3</servlet-name>
+    <jsp-file>/pages/admin/dashboard.jsp</jsp-file>
+</servlet>
+<!--mapping-->
+<servlet-mapping>
+    <servlet-name>Map3</servlet-name>
+    <url-pattern>/admin</url-pattern>   
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>Map4</servlet-name>
+    <jsp-file>/pages/client/Contact.jsp</jsp-file>
+</servlet>
+<!--mapping-->
+<servlet-mapping>
+    <servlet-name>Map4</servlet-name>
+    <url-pattern>/lienhe</url-pattern>   
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>Map5</servlet-name>
+    <jsp-file>/pages/client/Login.jsp</jsp-file>
+</servlet>
+<!--mapping-->
+<servlet-mapping>
+    <servlet-name>Map5</servlet-name>
+    <url-pattern>/dangnhap</url-pattern>   
+</servlet-mapping>
 
 
 <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
+    /WEB-INF/spring-servlet.xml,
    /WEB-INF/spring-security.xml
   </param-value>
   </context-param>
@@ -57,5 +121,7 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  
 
 </web-app>

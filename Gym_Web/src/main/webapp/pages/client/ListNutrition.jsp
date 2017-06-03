@@ -47,7 +47,7 @@ request.setAttribute("listNutrition", listNutrition);
 	                                    </div>
 	                                    <div class="news-content">
 	                                        <h3 style="white-space:nowrap;overflow:hidden"><a href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}">${nutrition.getNutritionName()}</a></h3>
-	                                        <p>Bài tập làm tăng cơ ngực , nở cơ mông , đẩy cong cơ đít ...</p>
+	                                        
 	                                        <a class="read-more" href="/SpringRestHibernateExample/pages/client/NutritionDetail.jsp?Id=${nutrition.getId()}">Chi Tiết</a>
 	                                    </div>
 	                                </div>

@@ -61,3 +61,5 @@
 
 <script src="/SpringRestHibernateExample/resources/js/common/main.js"></script>
 <script src="/SpringRestHibernateExample/resources/js/common/table.js"></script>
+
+<script src="/SpringRestHibernateExample/resources/client/js/controller/cookie.js"></script>

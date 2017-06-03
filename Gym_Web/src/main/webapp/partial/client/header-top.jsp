@@ -16,11 +16,11 @@
                                 <div class="main-menu">
                                     <nav>
                                         <ul>
-                                           <li class="active"><a href="Home.jsp">Trang chủ</a></li>
-                                  
-                                            <li><a href="ListNutrition.jsp">Dinh dưỡng</a></li>
-                                            <li><a href="Muscle.jsp">Bài tập theo nhóm cơ</a></li> 
-                                            <li><a href="Contact.jsp">Liên hệ</a></li>
+                                              <li class="active"><a href="/SpringRestHibernateExample/trangchu">Trang chủ</a></li>
+                                            <li><a href="/SpringRestHibernateExample/danhsachdinhduong">Dinh dưỡng</a></li>
+                                            <li><a href="/SpringRestHibernateExample/danhsachnhomco">Bài tập theo nhóm cơ</a></li> 
+                                            <li><a href="/SpringRestHibernateExample/lienhe">Liên hệ</a></li>
+                                            <li><a href="/SpringRestHibernateExample/dangnhap">Đăng nhập</a></li> 
                                         </ul>
                                     </nav>
                                 </div>
@@ -37,11 +37,11 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li class="active"><a href="Home.jsp">Trang chủ</a></li>
-<!--                                             <li><a href="Exercise_detail.jsp">Bài tập</a></li> -->
-                                            <li><a href="Nutrition.jsp">Dinh dưỡng</a></li> 
-                                            <li><a href="Muscle.jsp">Bài tập theo nhóm cơ</a></li> 
-                                            <li><a href="ontact.jsp">Liên hệ</a></li>                         
+                                            <li class="active"><a href="SpringRestHibernateExample/trangchu">Trang chủ</a></li>
+                                            <li><a href="/SpringRestHibernateExample/danhsachdinhduong">Dinh dưỡng</a></li>
+                                            <li><a href="/SpringRestHibernateExample/danhsachnhomco">Bài tập theo nhóm cơ</a></li> 
+                                            <li><a href="/SpringRestHibernateExample/lienhe">Liên hệ</a></li>
+                                            <li><a href="/SpringRestHibernateExample/dangnhap">Đăng nhập</a></li>                  
                                         </ul>
                                     </nav>
                                 </div>                  
