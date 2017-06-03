@@ -23,6 +23,9 @@ function PUT() {
 		url : "/SpringRestHibernateExample/updateNutrition",
 		method : "PUT",
 		contentType : "application/json",
+		headers: {
+		    "Authorization": "Basic " + btoa(gymweb + ":" + gymweb)
+		  },
 		data : JSON.stringify(data),
 		success : function() {
 			Message("Thành công", "Bạn đã cập nhật dữ liệu thành công!", "success");

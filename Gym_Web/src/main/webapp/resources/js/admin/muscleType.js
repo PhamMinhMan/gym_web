@@ -6,7 +6,7 @@ function POST() {
 	var token = "Basic "+ Cookies.get('token');
 	
 //	var s ="Authorization":+ +"Basic " +token;
-	alert(token);
+//	alert(token);
 	$.ajax({
 		url : "/SpringRestHibernateExample/addMuscleType",
 		method : "POST",

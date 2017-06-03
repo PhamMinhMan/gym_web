@@ -234,7 +234,7 @@ Update = function(data) {
 		})
 		UpdateData(data);
 	}).fail(function() {
-		Message("Thất bại", "Đã có lỗi xảy ra!", "danger");
+	//	Message("Thất bại", "Đã có lỗi xảy ra!", "danger");
 	});
 };
 

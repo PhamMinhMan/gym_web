@@ -1,11 +1,22 @@
 function POST() {
 	var data = $("#form").serializeFormJSON();
 	data.id = 0;
+	
+	
+	var token = "Basic "+ Cookies.get('token');
+	
+//	var s ="Authorization":+ +"Basic " +token;
+//	alert(token);
 	$.ajax({
 		url : "/SpringRestHibernateExample/addMuscleType",
 		method : "POST",
 		contentType : "application/json",
 		data : JSON.stringify(data),
+		headers: {
+		    //"Authorization": "Basic Z3ltd2ViOmd5bXdlYg=="
+			
+		    Authorization : token 
+		  },
 		success : function() {
 			Message("Thành công", "Bạn đã thêm dữ liệu thành công!", "success");
 			$('#bootstrap-table').bootstrapTable('refresh');
