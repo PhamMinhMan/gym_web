@@ -13802,3 +13802,6 @@ opacity
 .mce-widget.mce-notification.mce-notification-warning.mce-has-close.mce-in {
     display: none;
 }
+input#file {
+    margin-top: 13px;
+}

@@ -54,6 +54,7 @@ var oldUpdate = Update;
 Update = function (data) {
 	oldUpdate(data);
 	$('#song-image').attr('src',$(data['image']).attr('src'));
+	$('#image').val( $(data['image']).attr('src'));
 	$('#song-image').css('display','block');
 }
 

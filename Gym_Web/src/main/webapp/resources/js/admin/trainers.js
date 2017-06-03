@@ -54,6 +54,7 @@ var oldUpdate = Update;
 Update = function (data) {
 	oldUpdate(data);
 	$('#trainers-image').attr('src',$(data['trainersImage']).attr('src'));
+	$('#trainersImage').val( $(data['trainersImage']).attr('src'));
 	$('#trainers-image').css('display','block');
 }
 

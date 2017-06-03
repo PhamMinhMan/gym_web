@@ -59,7 +59,9 @@
 				<li><a href="muscleType.jsp"> <i class="material-icons">&#xe84e;</i>
 						<p>Muscle Type</p>
 				</a></li>
-				
+				<li><a href="trainers.jsp"> <i class="fa fa-signing"></i>
+						<p>Trainer</p>
+				</a></li>
 <!-- 				Tham khảo icon tại đây -->
 <!-- 				https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
 			</ul>

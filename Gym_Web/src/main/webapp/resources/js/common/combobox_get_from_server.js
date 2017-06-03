@@ -22,7 +22,7 @@ $.each(selectpickers, function(key, val) {
 						'">', values[displayMember], '</option>', ].join('');
 			});
 			comboboxContainer.append(datas.join(''));
-			$(val).selectpicker('refresh');
+			//$(val).selectpicker('refresh');
 			
 			var parent = $(val).parent().parent().parent();
 			

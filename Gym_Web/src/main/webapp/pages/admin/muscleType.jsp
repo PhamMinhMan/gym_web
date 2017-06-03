@@ -71,8 +71,8 @@
 																	name="muscleTypeImage">
 															</div>
 
-															<img id="muscleType-image" width="200" height="200"
-																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+															<img id="muscleType-image" width="200" height="200" class="img-admin"
+																style="text-align: center; display: none;"
 																src=""> </img>
 														</div>
 

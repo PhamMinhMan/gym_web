@@ -56,8 +56,8 @@
 																	name="nutritionImage">
 															</div>
 
-															<img id="nutrition-image" width="200" height="200"
-																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+															<img id="nutrition-image" class="img-admin" width="200" height="200"
+																style="text-align: center; display: none;"
 																src=""> </img>
 																</div>
 																

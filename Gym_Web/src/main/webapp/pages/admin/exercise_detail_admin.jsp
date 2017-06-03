@@ -139,8 +139,8 @@
 																	id="exerciseDetailImage" name="exerciseDetailImage">
 															</div>
 															
-															<img id="image_exercise" width="200" height="200"
-																	style="margin-top: 30px;text-align: center;display: none ;margin-left: 258px;" src=""> </img>
+															<img id="image_exercise" class="img-admin" width="200" height="200"
+																	style="text-align: center;display: none ;" src=""> </img>
 															
 														</div>
 

@@ -57,8 +57,8 @@
 																	name="lessionImage">
 															</div>
 
-															<img id="lession-image" width="200" height="200"
-																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+															<img class="img-admin" id="lession-image" width="200" height="200"
+																style="text-align: center; display: none;"
 																src=""> </img>
 
 														</div>

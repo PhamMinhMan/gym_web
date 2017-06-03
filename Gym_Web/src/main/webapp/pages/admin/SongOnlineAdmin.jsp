@@ -47,8 +47,8 @@
 																	name="image">
 															</div>
 
-															<img id="song-image" width="200" height="200"
-																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+															<img id="song-image" class="img-admin" width="200" height="200"
+																style="text-align: center; display: none; margin-left: 258px;"
 																src=""> </img>
 																</div>
 

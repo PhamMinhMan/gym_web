@@ -24,7 +24,7 @@ function PUT() {
 		method : "PUT",
 		contentType : "application/json",
 		data : JSON.stringify(data),
-		success : function() {
+		success : function(data) {
 			Message("Thành công", "Bạn đã cập nhật dữ liệu thành công!", "success");
 			$('#bootstrap-table').bootstrapTable('refresh');
 			ResetInput();

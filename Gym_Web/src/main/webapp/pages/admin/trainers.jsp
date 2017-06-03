@@ -109,8 +109,8 @@
 																	name="trainers_image">
 															</div>
 
-															<img id="trainers-image" width="200" height="200"
-																style="margin-top: 30px; text-align: center; display: none; margin-left: 258px;"
+															<img id="trainers-image" class="img-admin" width="200" height="200"
+																style="text-align: center; display: none;"
 																src=""> </img>
 														</div>
 

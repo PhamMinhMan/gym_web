@@ -55,6 +55,7 @@ Update = function (data) {
 	oldUpdate(data);
 //	$('#file').val(data['exerciseDetailImage']);
 	$('#lession-image').attr('src',$(data['lessionImage']).attr('src'));
+	$('#lessionImage').val( $(data['lessionImage']).attr('src'));
 	$('#lession-image').css('display','block');
 }
 
